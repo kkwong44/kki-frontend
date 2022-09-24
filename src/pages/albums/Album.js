@@ -1,8 +1,9 @@
 import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+import { Link, useHistory } from "react-router-dom";
+import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
+import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Album.module.css";
 
@@ -27,6 +28,20 @@ const Album = (props) => {
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/albums/${id}/edit`)
+  }
+
+  const handleDelete = async () => {
+    try {
+        await axiosReq.delete(`/albums/${id}`);
+        history.goBack()
+    } catch(err) {
+        // console.log(err)
+    }
+  }
 
   const handleLike = async () => {
     try {
@@ -70,7 +85,7 @@ const Album = (props) => {
           </Link>
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && albumPage && "..."}
+            {is_owner && albumPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
           </div>
         </Media>
       </Card.Body>
