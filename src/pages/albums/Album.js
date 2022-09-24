@@ -22,11 +22,43 @@ const Album = (props) => {
     category_filter,
     updated_at,
     albumPage,
-
+    setAlbums,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { album: id });
+      setAlbums((prevAlbums) => ({
+        ...prevAlbums,
+        results: prevAlbums.results.map((album) => {
+          return album.id === id
+            ? { ...album, likes_count: album.likes_count + 1, like_id: data.id }
+            : album;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setAlbums((prevAlbums) => ({
+        ...prevAlbums,
+        results: prevAlbums.results.map((album) => {
+          return album.id === id
+            ? { ...album, likes_count: album.likes_count - 1, like_id: null }
+            : album;
+        }),
+      }));
+    } catch (err) {
+      // console.log(err);
+    }
+  };
 
   return (
     <Card className={styles.Album}>
@@ -63,11 +95,11 @@ const Album = (props) => {
               <i className="far fa-heart" />
             </OverlayTrigger>
           ) : like_id ? (
-            <span onClick={() =>{}}>
+            <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
-            <span onClick={() => {}}>
+            <span onClick={handleLike}>
               <i className={`far fa-heart ${styles.HeartOutline}`} />
             </span>
           ) : (
