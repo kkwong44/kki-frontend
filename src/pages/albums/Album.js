@@ -1,3 +1,7 @@
+//
+// Individual Album Detail
+// Handle Likes, edit and delete album
+//
 import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
@@ -30,19 +34,22 @@ const Album = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  // Edit owner's album
   const handleEdit = () => {
-    history.push(`/albums/${id}/edit`)
-  }
+    history.push(`/albums/${id}/edit`);
+  };
 
+  // Edit owner' album
   const handleDelete = async () => {
     try {
-        await axiosReq.delete(`/albums/${id}`);
-        history.goBack()
-    } catch(err) {
-        // console.log(err)
+      await axiosReq.delete(`/albums/${id}`);
+      history.goBack();
+    } catch (err) {
+      // console.log(err)
     }
-  }
+  };
 
+  // Like album
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { album: id });
@@ -59,6 +66,7 @@ const Album = (props) => {
     }
   };
 
+  // Unlike album
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}`);
@@ -76,22 +84,32 @@ const Album = (props) => {
   };
 
   return (
+    // Renderalbum as a card
     <Card className={styles.Album}>
       <Card.Body>
+        {/* User profile */}
         <Media className="align-items-center justify-content-between">
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
+          {/* Date last updated and show menu for album's owner */}
           <div className="d-flex align-items-center">
             <span>{updated_at}</span>
-            {is_owner && albumPage && <MoreDropdown handleEdit={handleEdit} handleDelete={handleDelete} />}
+            {is_owner && albumPage && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
           </div>
         </Media>
       </Card.Body>
+      {/* Album cover image */}
       <Link to={`/albums/${id}`}>
         <Card.Img src={cover_image} alt={title} />
       </Link>
+      {/* Album's title, category and description */}
       <Card.Body>
         {title && <Card.Title className="text-center">{title}</Card.Title>}
         {category_filter && (
@@ -101,6 +119,7 @@ const Album = (props) => {
         )}
         {content && <Card.Text>{content}</Card.Text>}
 
+        {/* Handle and show likes and counts  */}
         <div className={styles.AlbumBar}>
           {is_owner ? (
             <OverlayTrigger

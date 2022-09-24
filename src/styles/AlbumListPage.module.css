@@ -1,4 +1,8 @@
-.SearchBar input {
+/* 
+    Styles sheet for album list page
+ */
+ 
+ .SearchBar input {
     border-radius: 20px;
     color: #242a3d;
     padding-left: 40px;

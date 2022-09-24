@@ -1,3 +1,7 @@
+// 
+// Page to shows list of albums
+// List can be filter be search, likes and profile
+// 
 import React, { useEffect, useState } from "react";
 
 import Form from "react-bootstrap/Form";
@@ -23,6 +27,7 @@ function AlbumListPage({ message, filter = "" }) {
   const [query, setQuery] = useState("");
 
   useEffect(() => {
+    // Fetch albums. Apply filter and search when needed
     const fetchAlbums = async () => {
       try {
         const { data } = await axiosReq.get(`/albums/?${filter}search=${query}`);
@@ -47,6 +52,7 @@ function AlbumListPage({ message, filter = "" }) {
         <p>Popular profiles mobile</p>
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
+          // Search bar and apply search
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}
         >
@@ -60,6 +66,7 @@ function AlbumListPage({ message, filter = "" }) {
         </Form>
         {hasLoaded ? (
           <>
+            {/* Load list of albums and apply infinite scroll */}
             {albums.results.length ? (
               <InfiniteScroll
                 children={albums.results.map((album) => (
@@ -71,12 +78,14 @@ function AlbumListPage({ message, filter = "" }) {
                 next={() => fetchMoreData(albums, setAlbums)}
               />
             ) : (
+              // Display no results when albums returned is zero
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
               </Container>
             )}
           </>
         ) : (
+          // Load spinner image while loading the albums
           <Container className={appStyles.Content}>
             <Asset spinner />
           </Container>
