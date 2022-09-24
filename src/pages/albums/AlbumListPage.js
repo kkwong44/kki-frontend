@@ -18,10 +18,12 @@ function AlbumListPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchAlbums = async () => {
       try {
-        const { data } = await axiosReq.get(`/albums/?${filter}`);
+        const { data } = await axiosReq.get(`/albums/?${filter}search=${query}`);
         console.log(data);
         console.log({ filter });
         setAlbums(data);
@@ -37,12 +39,25 @@ function AlbumListPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, pathname]);
+  }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+                <Form
+                    className={styles.SearchBar}
+                    onSubmit={(event) => event.preventDefault()}
+                >
+                    <Form.Control
+                        value={query}
+                        onChange={(event) => setQuery(event.target.value)}
+                        type='Text'
+                        className='mr-sm-2'
+                        placeholder='Search posts'
+                    />
+                </Form>
         {hasLoaded ? (
           <>
             {albums.results.length ? (
