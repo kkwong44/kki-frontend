@@ -17,7 +17,7 @@ import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
 import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+import { axiosReq } from "../../api/axiosDefaults";
 
 function AlbumCreateForm() {
   const [errors, setErrors] = useState({});
