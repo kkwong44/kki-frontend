@@ -12,6 +12,8 @@ import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import Album from "./Album";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function AlbumListPage({ message, filter = "" }) {
   const [albums, setAlbums] = useState({ results: [] });
@@ -24,8 +26,6 @@ function AlbumListPage({ message, filter = "" }) {
     const fetchAlbums = async () => {
       try {
         const { data } = await axiosReq.get(`/albums/?${filter}search=${query}`);
-        console.log(data);
-        console.log({ filter });
         setAlbums(data);
         setHasLoaded(true);
       } catch (err) {
@@ -46,24 +46,30 @@ function AlbumListPage({ message, filter = "" }) {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles mobile</p>
         <i className={`fas fa-search ${styles.SearchIcon}`} />
-                <Form
-                    className={styles.SearchBar}
-                    onSubmit={(event) => event.preventDefault()}
-                >
-                    <Form.Control
-                        value={query}
-                        onChange={(event) => setQuery(event.target.value)}
-                        type='Text'
-                        className='mr-sm-2'
-                        placeholder='Search posts'
-                    />
-                </Form>
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="Text"
+            className="mr-sm-2"
+            placeholder="Search posts"
+          />
+        </Form>
         {hasLoaded ? (
           <>
             {albums.results.length ? (
-              albums.results.map((album) => (
-                <Album key={album.id} {...album} setAlbums={setAlbums} />
-              ))
+              <InfiniteScroll
+                children={albums.results.map((album) => (
+                  <Album key={album.id} {...album} setAlbums={setAlbums} />
+                ))}
+                dataLength={albums.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!albums.next}
+                next={() => fetchMoreData(albums, setAlbums)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} />
