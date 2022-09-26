@@ -12,6 +12,7 @@ import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import Album from "./Album";
 import PhotoCreateForm from "../photos/PhotoCreateForm";
+import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Photo from "../photos/Photo";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -26,6 +27,7 @@ function AlbumPage() {
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [photos, setPhotos] = useState({ results: [] });
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -70,25 +72,23 @@ function AlbumPage() {
         <Container className={appStyles.Content}>
           {currentUser && photos.results.length ? (
             <InfiniteScroll
-            children={
-              photos.results.map((photo) => (
+              children={photos.results.map((photo) => (
                 <Photo
                   key={photo.id}
                   {...photo}
                   setAlbum={setAlbum}
                   setPhotos={setPhotos}
                 />
-                
-                ))
-              }
+              ))}
               dataLength={photos.results.length}
               loader={<Asset spinner />}
               hasMore={!!photos.next}
               next={() => fetchMoreData(photos, setPhotos)}
             />
-            
           ) : currentUser && is_owner ? (
             <span>No photos yet, add your photos to album!</span>
+          ) : currentUser ? (
+            <span>No photos yet, come back later!</span>
           ) : (
             <span>Sign in to see photos</span>
           )}
@@ -97,7 +97,19 @@ function AlbumPage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <Container>Popular profiles for desktop</Container>
 
-        <Container>Comments</Container>
+        {/* Form to add comments */}
+        {currentUser ? (
+          <CommentCreateForm
+            profile_id={currentUser.profile_id}
+            profileImage={profile_image}
+            album={id}
+            setAlbum={setAlbum}
+            setComments={setComments}
+          />
+        ) : comments.results.length ? (
+          "Comments"
+        ) : null}
+
       </Col>
     </Row>
   );
