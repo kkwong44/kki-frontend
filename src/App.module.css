@@ -20,6 +20,17 @@
   border: 1px solid #dadadf;
 }
 
+.ContentGrey {
+  background-color: #dadadf;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #dadada;
+}
+
+.ContentPadOnly {
+  padding: 8px;
+}
+
 .FillerImage {
   border-radius: 25px;
   object-fit: cover;

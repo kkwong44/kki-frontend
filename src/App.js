@@ -13,6 +13,7 @@ import AlbumEditForm from "./pages/albums/AlbumEditForm";
 import AlbumPage from "./pages/albums/AlbumPage";
 import AlbumListPage from "./pages/albums/AlbumListPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+// import PhotoCreateForm from "./pages/photos/PhotoCreateForm";
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           />
           <Route exact path="/albums/:id" render={() => <AlbumPage />} />
           <Route exact path="/albums/:id/edit" render={() => <AlbumEditForm />} />
+          {/* <Route exact path="/albums/:id/addphoto" render={() => <PhotoCreateForm />} /> */}
           <Route render={() => <h1>Page not found</h1>} />
         </Switch>
       </Container>

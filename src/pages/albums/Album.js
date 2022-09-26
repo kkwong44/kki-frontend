@@ -156,6 +156,7 @@ const Album = (props) => {
         </div>
       </Card.Body>
     </Card>
+    
   );
 };
 

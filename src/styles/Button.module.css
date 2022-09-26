@@ -71,3 +71,17 @@
     background-color: #2ed9ff;
     color: #2142b2;
 }
+
+.Red,
+.RedOutline:hover,
+.Bright:hover {
+    background-color: #df4759;
+    color: #ffffff;
+}
+
+.RedOutline,
+.Red:hover {
+    /* border: 1px solid #2142b2; */
+    background-color: #ffffff;
+    color: #df4759;
+}
