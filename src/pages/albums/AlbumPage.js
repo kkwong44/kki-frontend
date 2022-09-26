@@ -14,6 +14,9 @@ import Album from "./Album";
 import PhotoCreateForm from "../photos/PhotoCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Photo from "../photos/Photo";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 function AlbumPage() {
   const { id } = useParams();
@@ -66,14 +69,24 @@ function AlbumPage() {
 
         <Container className={appStyles.Content}>
           {currentUser && photos.results.length ? (
-            photos.results.map((photo) => (
-              <Photo
-                key={photo.id}
-                {...photo}
-                setAlbum={setAlbum}
-                setPhotos={setPhotos}
-              />
-            ))
+            <InfiniteScroll
+            children={
+              photos.results.map((photo) => (
+                <Photo
+                  key={photo.id}
+                  {...photo}
+                  setAlbum={setAlbum}
+                  setPhotos={setPhotos}
+                />
+                
+                ))
+              }
+              dataLength={photos.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!photos.next}
+              next={() => fetchMoreData(photos, setPhotos)}
+            />
+            
           ) : currentUser && is_owner ? (
             <span>No photos yet, add your photos to album!</span>
           ) : (

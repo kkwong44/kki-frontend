@@ -20,9 +20,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 
 function PhotoCreateForm(props) {
-  // const { album, setAlbum, setPhoto, profileImage, profile_id } = props;
-  const { album } = props;
-
+  const { album, setAlbum, setPhotos } = props;
   const [errors, setErrors] = useState({});
 
   const [photoData, setPhotoData] = useState({
@@ -33,7 +31,7 @@ function PhotoCreateForm(props) {
   const { title, photo_image } = photoData;
   const imageInput = useRef(null);
   const history = useHistory();
-  
+
   // Handle change in input fields
   const handleChange = (event) => {
     setPhotoData({
@@ -63,8 +61,23 @@ function PhotoCreateForm(props) {
     formData.append("photo_image", imageInput.current.files[0]);
 
     try {
-      await axiosReq.post("/photos/", formData);
-      history.push(`/albums/${album}`, setPhotoData({title:'', photo_image: ''}));
+      const { data } = await axiosReq.post("/photos/", formData);
+      history.push(
+        `/albums/${album}`,
+        setPhotoData({ title: "", photo_image: "" })
+      );
+      setPhotos((prevPhotos) => ({
+        ...prevPhotos,
+        results: [data, ...prevPhotos.results],
+      }));
+      setAlbum((prevAlbum) => ({
+        results: [
+          {
+            ...prevAlbum.results[0],
+            photos_count: prevAlbum.results[0].photos_count + 1,
+          },
+        ],
+      }));
     } catch (err) {
       // console.log(err)
       if (err.response?.status !== 401) {
@@ -78,7 +91,7 @@ function PhotoCreateForm(props) {
     <div className="text-center">
       {/* Album title input */}
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        <Form.Label>Photo Reference</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -94,7 +107,12 @@ function PhotoCreateForm(props) {
       {/* Cancel and create buttons */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => history.push(`/albums/${album}`, setPhotoData({title:'', photo_image: ''}))}
+        onClick={() =>
+          history.push(
+            `/albums/${album}`,
+            setPhotoData({ title: "", photo_image: "" })
+          )
+        }
       >
         cancel
       </Button>
@@ -108,7 +126,7 @@ function PhotoCreateForm(props) {
     <Form onSubmit={handleSubmit}>
       <Row>
         {/* Rendering form layout */}
-        <Col className="py-2 p-0 p-md-2"  lg={12}>
+        <Col className="py-2 p-0 p-md-2" lg={12}>
           <Container
             className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
           >
@@ -156,14 +174,10 @@ function PhotoCreateForm(props) {
                 {message}
               </Alert>
             ))}
-            {/* TextFields for mobile devices */}
+            {/* Photo Reference */}
             <div className="d-md-block">{textFields}</div>
           </Container>
         </Col>
-        {/* TextFields for large devices */}
-        {/* <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-          <Container className={appStyles.Content}>{textFields}</Container>
-        </Col> */}
       </Row>
     </Form>
   );
