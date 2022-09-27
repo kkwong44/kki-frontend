@@ -15,6 +15,7 @@ import PhotoCreateForm from "../photos/PhotoCreateForm";
 import CommentCreateForm from "../comments/CommentCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Photo from "../photos/Photo";
+import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
@@ -32,13 +33,17 @@ function AlbumPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: album }, { data: photos }] = await Promise.all([
-          axiosReq.get(`/albums/${id}`),
-          axiosReq.get(`/photos/?album=${id}`),
-        ]);
+        const [{ data: album }, { data: photos }, { data: comments }] =
+          await Promise.all([
+            axiosReq.get(`/albums/${id}`),
+            axiosReq.get(`/photos/?album=${id}`),
+            axiosReq.get(`/comments/?album=${id}`),
+          ]);
         setOwner(album.owner);
         setAlbum({ results: [album] });
         setPhotos(photos);
+        setComments(comments);
+
       } catch (err) {
         console.log(err);
       }
@@ -56,7 +61,7 @@ function AlbumPage() {
         <Container className={appStyles.ContentGrey}>
           <Album {...album.results[0]} setAlbums={setAlbum} albumPage />
         </Container>
-
+        {/* Form to add photo - only logged in owner */}
         <Container className={appStyles.ContentPadOnly}>
           {currentUser && is_owner ? (
             <PhotoCreateForm
@@ -68,7 +73,7 @@ function AlbumPage() {
             />
           ) : null}
         </Container>
-
+        {/* List photos - Logged in user only */}
         <Container className={appStyles.Content}>
           {currentUser && photos.results.length ? (
             <InfiniteScroll
@@ -97,19 +102,44 @@ function AlbumPage() {
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <Container>Popular profiles for desktop</Container>
 
-        {/* Form to add comments */}
-        {currentUser ? (
-          <CommentCreateForm
-            profile_id={currentUser.profile_id}
-            profileImage={profile_image}
-            album={id}
-            setAlbum={setAlbum}
-            setComments={setComments}
-          />
-        ) : comments.results.length ? (
-          "Comments"
-        ) : null}
-
+        <Container className={appStyles.Content}>
+          {/* Form to add comments */}
+          {currentUser ? (
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              album={id}
+              setAlbum={setAlbum}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
+        </Container>
+        <br></br>
+        {/* List comments */}
+        <Container className={appStyles.Content}>
+          {comments.results.length ? (
+            <InfiniteScroll
+              children={comments.results.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  {...comment}
+                  setAlbum={setAlbum}
+                  setComments={setComments}
+                />
+              ))}
+              dataLength={comments.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!comments.next}
+              next={() => fetchMoreData(comments, setComments)}
+            />
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
+        </Container>
       </Col>
     </Row>
   );

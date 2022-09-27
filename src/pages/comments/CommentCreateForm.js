@@ -1,5 +1,5 @@
 //
-// Create an add comments form
+// Create comments form to allow add comments to album
 //
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
@@ -49,11 +49,13 @@ function CommentCreateForm(props) {
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
+      {/* Form layout with current user profile image */}
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
+          {/* Comment field */}
           <Form.Control
             className={styles.Form}
             placeholder="my comment..."
@@ -64,6 +66,7 @@ function CommentCreateForm(props) {
           />
         </InputGroup>
       </Form.Group>
+      {/* Post button */}
       <button
         className={`${styles.Button} btn d-block ml-auto`}
         disabled={!content.trim()}
