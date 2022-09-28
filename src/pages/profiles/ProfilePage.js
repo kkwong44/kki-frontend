@@ -27,6 +27,7 @@ import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Album from "../albums/Album";
 import { fetchMoreData } from "../../utils/utils";
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -63,6 +64,8 @@ function ProfilePage() {
   // Header with profile data i.e counts and unfollow profile button
   const mainProfile = (
     <>
+      {/* Dropdown menu for owner's profile */}
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
