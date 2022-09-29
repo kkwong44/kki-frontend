@@ -1,6 +1,7 @@
 /* 
     Project Utilities
  */
+import jwtDecode from "jwt-decode";
 import { axiosReq } from "../api/axiosDefaults";
 
 // Fetch more data utility - eg use in infinity scroll
@@ -56,3 +57,19 @@ export const unfollowHelper = (profile, clickedProfile) => {
       // the user owns, so just return it unchanged
       profile;
 }
+
+// Set refresh token
+export const setTokenTimestamp = (data) => {
+  const refreshTokenTimestamp = jwtDecode(data?.refresh_token).exp;
+  localStorage.setItem("refreshTokenTimestamp", refreshTokenTimestamp);
+};
+
+// Check refresh token
+export const shouldRefreshToken = () => {
+  return !!localStorage.getItem("refreshTokenTimestamp");
+};
+
+// Remove refresh token
+export const removeTokenTimestamp = () => {
+  localStorage.removeItem("refreshTokenTimestamp");
+};

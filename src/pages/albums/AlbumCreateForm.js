@@ -51,7 +51,7 @@ function AlbumCreateForm() {
       }
     };
     fetchData();
-  }, []);
+  }, [currentUser]);
 
   // Handle change in input fields
   const handleChange = (event) => {
