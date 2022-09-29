@@ -19,11 +19,13 @@ import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function AlbumCreateForm() {
   useRedirect("loggedOut");
 
   const [errors, setErrors] = useState({});
+  const currentUser = useCurrentUser();
 
   const [albumData, setAlbumData] = useState({
     title: "",
@@ -44,7 +46,9 @@ function AlbumCreateForm() {
   useEffect(() => {
     const fetchData = async () => {
       const category = await axiosReq.options("/albums");
-      setCategoryList(category.data.actions.POST.category_filter.choices);
+      if (currentUser) {
+        setCategoryList(category.data.actions.POST.category_filter.choices);
+      }
     };
     fetchData();
   }, []);
