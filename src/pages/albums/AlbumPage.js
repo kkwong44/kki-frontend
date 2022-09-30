@@ -57,7 +57,8 @@ function AlbumPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles for mobile</p>
+        {/* Show popular profiles */}
+        <PopularProfiles mobile />
 
         <Container>
           <Album {...album.results[0]} setAlbums={setAlbum} albumPage />
@@ -101,8 +102,9 @@ function AlbumPage() {
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        <Container>Popular profiles for desktop</Container>
-
+        {/* Show popular profiles */}
+        <PopularProfiles />
+        <br />
         <Container className={appStyles.Content}>
           {/* Form to add comments */}
           {currentUser ? (
