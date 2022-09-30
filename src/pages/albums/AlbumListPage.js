@@ -19,6 +19,7 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
+import PopularAlbums from "./PopularAlbums";
 
 function AlbumListPage({ message, filter = "" }) {
   const [albums, setAlbums] = useState({ results: [] });
@@ -50,7 +51,9 @@ function AlbumListPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        {/* Popular Profiles and Albums component for mobile devices */}
         <PopularProfiles mobile />
+        <PopularAlbums mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           // Search bar and apply search
@@ -92,8 +95,11 @@ function AlbumListPage({ message, filter = "" }) {
           </Container>
         )}
       </Col>
+      {/* Popular Profiles component for desktop devices */}
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <br />
+        <PopularAlbums />
       </Col>
     </Row>
   );

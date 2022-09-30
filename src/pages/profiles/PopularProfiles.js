@@ -16,7 +16,7 @@ const PopularProfiles = ({ mobile }) => {
   return (
     <Container
       // Check mobile or desktop
-      // Show first 4 profiles on mobile and default 10 on desktop
+      // Show first 4 profiles on mobile and 5 on desktop
       className={`${appStyles.Content} ${
         mobile && "d-lg-none text-center mb-3"
       }`}
@@ -34,7 +34,7 @@ const PopularProfiles = ({ mobile }) => {
               ))}
             </div>
           ) : (
-            popularProfiles.results.map((profile) => (
+            popularProfiles.results.slice(0, 5).map((profile) => (
               <Profile key={profile.id} profile={profile} />
             ))
           )}

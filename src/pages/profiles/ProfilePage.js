@@ -28,6 +28,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Album from "../albums/Album";
 import { fetchMoreData } from "../../utils/utils";
 import { ProfileEditDropdown } from "../../components/MoreDropdown";
+import PopularAlbums from "../albums/PopularAlbums";
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -145,6 +146,7 @@ function ProfilePage() {
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />
+        <PopularAlbums mobile />
         <Container className={appStyles.Content}>
           {hasLoaded ? (
             <>
@@ -158,6 +160,8 @@ function ProfilePage() {
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         <PopularProfiles />
+        <br />
+        <PopularAlbums />
       </Col>
     </Row>
   );
