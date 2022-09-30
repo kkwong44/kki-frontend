@@ -5,24 +5,33 @@
 .Album {
     background-color: #ffffff;
     border: 1px solid #dadadf;
-    border-radius: 2px;
+    border-radius: 30px;
     margin-bottom: 16px;
     text-align: center;
   }
   
-  .Album figure,
-  h5 {
-    margin: 0 0;
-  }
-  
-  .Heart {
-    color: #f85032;
-  }
-  
-  .Heart:hover {
-    color: #2142b2;
-  }
-  
-  .HeartOutline:hover {
-    color: #f85032;
-  }
+.Border {
+  border: 1px solid #dadadf;
+}
+
+.Header {
+  background-color: #dadadf;
+  border-radius: 10px;
+}
+
+.Album figure,
+h5 {
+  margin: 0 0;
+}
+
+.Heart {
+  color: #f85032;
+}
+
+.Heart:hover {
+  color: #2142b2;
+}
+
+.HeartOutline:hover {
+  color: #f85032;
+}

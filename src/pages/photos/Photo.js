@@ -46,8 +46,9 @@ const Photo = (props) => {
 
   return (
     <div>
-      <Card className={styles.Photo}>
-        <Card.Body>
+      <Card>
+        {/* Photo card header */}
+        <Card.Body className={styles.Photo}>
           <Media className="align-items-center justify-content-between">
             <Link to={`/profiles/${profile_id}`}>
               <Avatar src={profile_image} height={55} />
@@ -68,12 +69,15 @@ const Photo = (props) => {
             </div>
           </Media>
         </Card.Body>
-        <hr />
-        <Link to={`/albums/${id}`}>
-          <Card.Img src={photo_image} alt={title} />
-        </Link>
-        <hr />
-        <Card.Body>
+        {/* Photo id */}
+        <div className="text-center mt-3">Photo #{id}</div>
+        {/* Photo image */}
+        <div className="text-center">
+          <Card.Img src={photo_image} alt={title} className={styles.Border} />
+        </div>
+        {/* Photo reference / description */}
+        <Card.Body className={`mt-3 ${styles.Photo}`}>
+          <div className="text-center text-muted small">Photo Ref:</div>
           {title && <Card.Title className="text-center">{title}</Card.Title>}
         </Card.Body>
       </Card>

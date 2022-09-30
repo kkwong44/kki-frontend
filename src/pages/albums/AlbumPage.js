@@ -58,7 +58,7 @@ function AlbumPage() {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
 
-        <Container className={appStyles.ContentGrey}>
+        <Container>
           <Album {...album.results[0]} setAlbums={setAlbum} albumPage />
         </Container>
         {/* Form to add photo - only logged in owner */}

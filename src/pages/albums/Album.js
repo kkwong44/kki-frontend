@@ -84,30 +84,35 @@ const Album = (props) => {
   };
 
   return (
-    // Renderalbum as a card
+    // Render album as a card
     <Card className={styles.Album}>
       <Card.Body>
-        {/* User profile */}
-        <Media className="align-items-center justify-content-between">
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profile_image} height={55} />
-            {owner}
-          </Link>
-          {/* Date last updated and show menu for album's owner */}
-          <div className="d-flex align-items-center">
-            <span>{updated_at}</span>
-            {is_owner && albumPage && (
-              <MoreDropdown
-                handleEdit={handleEdit}
-                handleDelete={handleDelete}
-              />
-            )}
-          </div>
-        </Media>
+        {/* Header */}
+        <Card.Body className={styles.Header}>
+          {/* User profile */}
+          <Media className="align-items-center justify-content-between">
+            <Link to={`/profiles/${profile_id}`}>
+              <Avatar src={profile_image} height={55} />
+              {owner}
+            </Link>
+            {/* Date last updated and show menu for album's owner */}
+            <div className="d-flex align-items-center">
+              <span>{updated_at}</span>
+              {is_owner && albumPage && (
+                <MoreDropdown
+                  handleEdit={handleEdit}
+                  handleDelete={handleDelete}
+                />
+              )}
+            </div>
+          </Media>
+        </Card.Body>
       </Card.Body>
+      {/* Album id */}
+      <div className="text-center mb-2">Album #{id}</div>
       {/* Album cover image */}
       <Link to={`/albums/${id}`}>
-        <Card.Img src={cover_image} alt={title} />
+        <Card.Img src={cover_image} alt={title} className={styles.Border} />
       </Link>
       {/* Album's title, category and description */}
       <Card.Body>
@@ -156,7 +161,6 @@ const Album = (props) => {
         </div>
       </Card.Body>
     </Card>
-    
   );
 };
 

@@ -23,7 +23,7 @@
 .ContentGrey {
   background-color: #dadadf;
   padding: 10px;
-  border-radius: 2px;
+  border-radius: 30px;
   border: 1px solid #dadada;
 }
 
@@ -67,7 +67,7 @@ input[type="file"] {
 }
 
 i {
-  color: #cfced3;
+  color: #8c8c8c;
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
