@@ -93,6 +93,7 @@ function PhotoCreateForm(props) {
       <Form.Group>
         <Form.Label>Photo Reference</Form.Label>
         <Form.Control
+          aria-label="Photo reference"
           type="text"
           name="title"
           value={title}

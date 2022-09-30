@@ -152,12 +152,13 @@ const Album = (props) => {
           {likes_count}
           <Link to={`/albums/${id}`}>
             <i className="far fa-comments" />
+            {comments_count}
           </Link>
-          {comments_count}
           <Link to={`/albums/${id}`}>
             <i className="far fa-image" />
+            {photos_count}
           </Link>
-          {photos_count}
+          
         </div>
       </Card.Body>
     </Card>

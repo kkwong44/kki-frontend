@@ -61,6 +61,7 @@ function AlbumListPage({ message, filter = "" }) {
           onSubmit={(event) => event.preventDefault()}
         >
           <Form.Control
+            aria-label="Search Bar"
             value={query}
             onChange={(event) => setQuery(event.target.value)}
             type="Text"

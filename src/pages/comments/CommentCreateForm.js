@@ -57,6 +57,7 @@ function CommentCreateForm(props) {
           </Link>
           {/* Comment field */}
           <Form.Control
+            aria-label="Add comment"
             className={styles.Form}
             placeholder="my comment..."
             as="textarea"
