@@ -17,6 +17,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import AlbumCommentsPage from "./pages/albums/AlbumCommentsPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -56,6 +57,11 @@ function App() {
             exact
             path="/albums/:id/edit"
             render={() => <AlbumEditForm />}
+          />
+          <Route
+            exact
+            path="/albums/:id/comments"
+            render={() => <AlbumCommentsPage />}
           />
           <Route exact path="/profiles/:id" render={() => <ProfilePage />} />
           <Route

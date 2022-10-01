@@ -150,15 +150,30 @@ const Album = (props) => {
             </OverlayTrigger>
           )}
           {likes_count}
-          <Link to={`/albums/${id}`}>
-            <i className="far fa-comments" />
-            {comments_count}
-          </Link>
-          <Link to={`/albums/${id}`}>
-            <i className="far fa-image" />
-            {photos_count}
-          </Link>
-          
+
+          {comments_count === 0 ? (
+            <Link to={`/albums/${id}/comments`}>
+              <i className="far fa-comments" />
+              {`${comments_count} `}
+            </Link>
+          ) : (
+            <Link to={`/albums/${id}/comments`}>
+              <i className="fas fa-comments" />
+              {comments_count}
+            </Link>
+          )}
+
+          {photos_count === 0 ? (
+            <Link to={`/albums/${id}`}>
+              <i className="far fa-image" />
+              {photos_count}
+            </Link>
+          ) : (
+            <Link to={`/albums/${id}`}>
+              <i className="fas fa-image" />
+              {photos_count}
+            </Link>
+          )}
         </div>
       </Card.Body>
     </Card>

@@ -50,6 +50,8 @@ function CommentCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       {/* Form layout with current user profile image */}
+      <div className="text-center"><strong>Add comments</strong></div>
+      <hr />
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
