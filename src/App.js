@@ -18,6 +18,7 @@ import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import AlbumCommentsPage from "./pages/albums/AlbumCommentsPage";
+import AboutPage from "./pages/abouts/AboutPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -47,6 +48,7 @@ function App() {
           />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/about" render={() => <AboutPage />} />
           <Route
             exact
             path="/albums/create"

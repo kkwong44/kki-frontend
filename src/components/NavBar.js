@@ -20,7 +20,7 @@ const NavBar = () => {
   const setCurrentUser = useSetCurrentUser();
 
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
-  
+
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -31,6 +31,7 @@ const NavBar = () => {
     }
   };
 
+  // Icon for add a new album
   const addAlbumIcon = (
     <NavLink
       className={styles.NavLink}
@@ -41,6 +42,7 @@ const NavBar = () => {
     </NavLink>
   );
 
+  // Show icons for logged in user
   const loggedInIcons = (
     <>
       <NavLink
@@ -61,6 +63,7 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+  // Show icons for logged out user
   const loggedOutIcons = (
     <>
       <NavLink
@@ -108,6 +111,13 @@ const NavBar = () => {
               to="/"
             >
               <i className="fas fa-home"></i>Home
+            </NavLink>
+            <NavLink
+              className={styles.NavLink}
+              activeClassName={styles.Active}
+              to="/about"
+            >
+              <i className="fa fa-info-circle"></i>About
             </NavLink>
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
