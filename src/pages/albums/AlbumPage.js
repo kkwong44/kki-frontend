@@ -21,11 +21,13 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import CommentMobile from "../comments/CommentMobile";
+import { useHistory } from "react-router-dom";
 
 function AlbumPage() {
   const { id } = useParams();
   const [album, setAlbum] = useState({ results: [] });
   const [owner, setOwner] = useState();
+  const history = useHistory();
 
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
@@ -45,13 +47,13 @@ function AlbumPage() {
         setAlbum({ results: [album] });
         setPhotos(photos);
         setComments(comments);
-
       } catch (err) {
-        console.log(err);
+        if (err.response.status === 400 || err.response.status === 404)
+          history.push("/");
       }
     };
     handleMount();
-  }, [id]);
+  }, [id, history]);
 
   const is_owner = currentUser?.username === owner;
 

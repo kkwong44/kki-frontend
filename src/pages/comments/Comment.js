@@ -96,7 +96,7 @@ const Comment = (props) => {
       </Media>
       <hr />
 
-      {/* Confirm to delete photo */}
+      {/* Confirm to delete comment */}
       <DeleteConfirmation
         showModal={displayConfirmationModal}
         confirmModal={handleDelete}

@@ -2,11 +2,12 @@
 // Individual Album Detail
 // Handle Likes, edit and delete album
 //
-import React from "react";
+import React, { useState } from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
+import DeleteConfirmation from "../../components/DeleteConfirmation";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Album.module.css";
@@ -34,16 +35,31 @@ const Album = (props) => {
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
+  const [displayConfirmationModal, setDisplayConfirmationModal] =
+    useState(false);
+  const [deleteMessage, setDeleteMessage] = useState(null);
+
+  // Handle the displaying of the modal and message
+  const showDeleteModal = () => {
+    setDeleteMessage("Are you sure you want to delete this album?");
+    setDisplayConfirmationModal(true);
+  };
+
+  // Hide the modal
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  };
+
   // Edit owner's album
   const handleEdit = () => {
     history.push(`/albums/${id}/edit`);
   };
 
-  // Edit owner' album
+  // Delete owner' album
   const handleDelete = async () => {
     try {
       await axiosReq.delete(`/albums/${id}`);
-      history.goBack();
+      history.push("/");
     } catch (err) {
       // console.log(err)
     }
@@ -101,7 +117,7 @@ const Album = (props) => {
               {is_owner && albumPage && (
                 <MoreDropdown
                   handleEdit={handleEdit}
-                  handleDelete={handleDelete}
+                  handleDelete={() => showDeleteModal()}
                 />
               )}
             </div>
@@ -176,6 +192,14 @@ const Album = (props) => {
           )}
         </div>
       </Card.Body>
+
+      {/* Confirm to delete album */}
+      <DeleteConfirmation
+        showModal={displayConfirmationModal}
+        confirmModal={handleDelete}
+        hideModal={hideConfirmationModal}
+        message={deleteMessage}
+      />
     </Card>
   );
 };
