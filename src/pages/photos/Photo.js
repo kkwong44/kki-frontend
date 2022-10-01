@@ -1,4 +1,7 @@
-import React from "react";
+//
+// Individual photo layout and allow owner delete
+//
+import React, { useState } from "react";
 import { Card, Media } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -7,6 +10,7 @@ import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import styles from "../../styles/Photo.module.css";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Button.module.css";
+import DeleteConfirmation from "../../components/DeleteConfirmation";
 
 const Photo = (props) => {
   const {
@@ -23,6 +27,22 @@ const Photo = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
 
+  const [displayConfirmationModal, setDisplayConfirmationModal] =
+    useState(false);
+  const [deleteMessage, setDeleteMessage] = useState(null);
+
+  // Handle the displaying of the modal and message
+  const showDeleteModal = () => {
+    setDeleteMessage("Are you sure you want to delete this photo?");
+    setDisplayConfirmationModal(true);
+  };
+
+  // Hide the modal
+  const hideConfirmationModal = () => {
+    setDisplayConfirmationModal(false);
+  };
+
+  // Handle delete of photo
   const handleDelete = async () => {
     try {
       await axiosReq.delete(`/photos/${id}`);
@@ -55,17 +75,16 @@ const Photo = (props) => {
               {owner}
             </Link>
             <div className="d-flex align-items-center">
+              {/* Show delete button to owner's photo */}
               {is_owner ? (
                 <Button
-                  className={`${btnStyles.Button} ${btnStyles.Red}`}
-                  onClick={() => handleDelete()}
+                  className={btnStyles.Button}
+                  onClick={() => showDeleteModal()}
                   type="button"
                 >
                   Delete
                 </Button>
-              ) : (
-                ""
-              )}
+              ) : null}
             </div>
           </Media>
         </Card.Body>
@@ -82,6 +101,13 @@ const Photo = (props) => {
         </Card.Body>
       </Card>
       <br></br>
+      {/* Confirm to delete photo */}
+      <DeleteConfirmation
+        showModal={displayConfirmationModal}
+        confirmModal={handleDelete}
+        hideModal={hideConfirmationModal}
+        message={deleteMessage}
+      />
     </div>
   );
 };
