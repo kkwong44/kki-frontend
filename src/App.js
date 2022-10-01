@@ -19,6 +19,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import AlbumCommentsPage from "./pages/albums/AlbumCommentsPage";
 import AboutPage from "./pages/abouts/AboutPage";
+import Code404 from "./pages/Errors/Code404";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -81,7 +82,7 @@ function App() {
             path="/profiles/:id/edit"
             render={() => <ProfileEditForm />}
           />
-          <Route render={() => <h1>Page not found</h1>} />
+          <Route render={() => <Code404 />} />
         </Switch>
       </Container>
     </div>
