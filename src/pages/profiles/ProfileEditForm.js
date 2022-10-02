@@ -32,8 +32,9 @@ const ProfileEditForm = () => {
     name: "",
     content: "",
     image: "",
+    email: "",
   });
-  const { name, content, image } = profileData;
+  const { name, content, image, email } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -43,8 +44,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image } = data;
-          setProfileData({ name, content, image });
+          const { name, content, image, email } = data;
+          setProfileData({ name, content, image, email });
         } catch (err) {
           console.log(err);
           history.push("/");
@@ -71,6 +72,7 @@ const ProfileEditForm = () => {
     const formData = new FormData();
     formData.append("name", name);
     formData.append("content", content);
+    formData.append("email", email);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
@@ -89,9 +91,24 @@ const ProfileEditForm = () => {
     }
   };
 
-  // Set form's Biography field and buttons
+  // Set form's data fields and buttons
   const textFields = (
     <>
+      <Form.Group>
+        <Form.Label>Name</Form.Label>
+        <Form.Control
+          type="text"
+          value={name}
+          onChange={handleChange}
+          name="name"
+        />
+      </Form.Group>
+      {errors?.name?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
       <Form.Group>
         <Form.Label>Biography</Form.Label>
         <Form.Control
@@ -103,6 +120,21 @@ const ProfileEditForm = () => {
         />
       </Form.Group>
       {errors?.content?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+      <Form.Group>
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
+          value={email}
+          onChange={handleChange}
+          name="email"
+        />
+      </Form.Group>
+      {errors?.email?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>

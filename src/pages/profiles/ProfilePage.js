@@ -73,20 +73,30 @@ function ProfilePage() {
             className={styles.ProfileImage}
             roundedCircle
             src={profile?.image}
+            alt="Avatar"
           />
         </Col>
         <Col lg={6}>
-          <h3 className="m-2">{profile?.owner}</h3>
+          <h1 className="m-2 h3">{profile?.owner}</h1>
+          <h2 className="h6">{profile?.name}</h2>
+          <p>
+            <a
+              href={`mailto:${profile?.email}`}
+              aria-label="Open email client in a new window."
+            >
+              {profile?.email}
+            </a>
+          </p>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.albums_count}</div>
               <div>albums</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.followers_count}</div>
               <div>followers</div>
             </Col>
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.following_count}</div>
               <div>following</div>
             </Col>

@@ -38,7 +38,7 @@ const NavBar = () => {
       activeClassName={styles.Active}
       to="/albums/create"
     >
-      <i className="far fa-plus-square"></i>Add album
+      <i className="far fa-plus-square"></i>Album
     </NavLink>
   );
 
