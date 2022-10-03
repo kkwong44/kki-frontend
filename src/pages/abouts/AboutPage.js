@@ -8,7 +8,7 @@ import hero from "../../assets/hero.jpg";
 function AboutPage() {
   return (
     <>
-      <Container>
+      <Container className="mt-3">
         <Card>
           <Card.Body>
             <Card.Title>About KK Images</Card.Title>

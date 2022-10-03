@@ -20,6 +20,8 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import AlbumCommentsPage from "./pages/albums/AlbumCommentsPage";
 import AboutPage from "./pages/abouts/AboutPage";
 import Code404 from "./pages/Errors/Code404";
+import ContactPage from "./pages/contacts/ContactPage";
+import ContactEditForm from "./pages/contacts/ContactEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -50,6 +52,12 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/about" render={() => <AboutPage />} />
+          <Route exact path="/contacts" render={() => <ContactPage />} />
+          <Route
+            exact
+            path="/contacts/edit"
+            render={() => <ContactEditForm />}
+          />
           <Route
             exact
             path="/albums/create"
