@@ -17,6 +17,7 @@ import styles from "../../styles/AlbumListPage.module.css";
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
 import { fetchMoreData } from "../../utils/utils";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 import Album from "./Album";
 import Asset from "../../components/Asset";
@@ -28,6 +29,7 @@ function AlbumListPage({ message, filter = "" }) {
   const [albums, setAlbums] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
+  const currentUser = useCurrentUser();
 
   const [query, setQuery] = useState("");
 
@@ -49,7 +51,7 @@ function AlbumListPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
