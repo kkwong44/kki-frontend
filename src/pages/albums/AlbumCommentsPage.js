@@ -8,16 +8,19 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
+
 import Album from "./Album";
 import PhotoCreateForm from "../photos/PhotoCreateForm";
 import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from "../comments/Comment";
 import InfiniteScroll from "react-infinite-scroll-component";
-import Asset from "../../components/Asset";
-import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import Photo from "../photos/Photo";
 

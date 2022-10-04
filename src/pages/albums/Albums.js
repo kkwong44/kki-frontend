@@ -2,7 +2,9 @@
 // Display Popular Albums in mobile desktop modes
 //
 import React from "react";
+
 import { Link } from "react-router-dom";
+
 import styles from '../../styles/Albums.module.css'
 
 const Albums = (props) => {

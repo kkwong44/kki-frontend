@@ -10,14 +10,17 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import NoResults from "../../assets/no-results.png";
+
 import appStyles from "../../App.module.css";
 import styles from "../../styles/AlbumListPage.module.css";
+
 import { useLocation } from "react-router-dom";
 import { axiosReq } from "../../api/axiosDefaults";
+import { fetchMoreData } from "../../utils/utils";
+
 import Album from "./Album";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularAlbums from "./PopularAlbums";
 

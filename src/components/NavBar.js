@@ -3,17 +3,25 @@
 //
 import axios from "axios";
 import React from "react";
-import { Navbar, Container, Nav } from "react-bootstrap";
+
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+
 import { NavLink } from "react-router-dom";
+
 import logo from "../assets/kki-logo.png";
+import Avatar from "./Avatar";
+
 import {
   useCurrentUser,
   useSetCurrentUser,
 } from "../contexts/CurrentUserContext";
+
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
-import styles from "../styles/NavBar.module.css";
 import { removeTokenTimestamp } from "../utils/utils";
-import Avatar from "./Avatar";
+
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();

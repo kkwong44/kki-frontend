@@ -3,13 +3,21 @@
 // Handle Likes, edit and delete album
 //
 import React, { useState } from "react";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 import { Link, useHistory } from "react-router-dom";
 import { axiosReq, axiosRes } from "../../api/axiosDefaults";
+
 import Avatar from "../../components/Avatar";
 import DeleteConfirmation from "../../components/DeleteConfirmation";
+
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import styles from "../../styles/Album.module.css";
 
 const Album = (props) => {

@@ -2,7 +2,6 @@
 // Toggle between expand and collapse when 
 // clicked outside of the object
 // 
-
 import { useEffect, useRef, useState } from 'react'
 
 const useClickOutsideToggle = () => {

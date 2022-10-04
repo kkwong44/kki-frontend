@@ -3,12 +3,18 @@
 // First record returned always the Company details
 //
 import React, { useEffect, useState } from "react";
-import { Button, Card, Container, Table } from "react-bootstrap";
+
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+import Table from "react-bootstrap/Table";
+
 import { axiosReq } from "../../api/axiosDefaults";
-import btnStyles from "../../styles/Button.module.css";
-import hero from "../../assets/hero.jpg";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { useHistory } from "react-router-dom";
+
+import btnStyles from "../../styles/Button.module.css";
+import hero from "../../assets/hero.jpg";
 
 function ContactPage() {
   const [contacts, setContacts] = useState({ results: [] });

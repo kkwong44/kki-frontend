@@ -2,7 +2,9 @@
 // JavaScript for delete confirmation component
 //
 import React from 'react'
-import { Modal, Button } from "react-bootstrap";
+
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
  
 const DeleteConfirmation = ({ showModal, hideModal, confirmModal, message }) => {
     return (

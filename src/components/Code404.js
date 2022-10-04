@@ -2,9 +2,11 @@
 // 404 Page not found
 //
 import React from "react";
-import { Card, Container } from "react-bootstrap";
+
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+
 import NoResults from "../assets/no-results.png";
-// import styles from '../../src/styles/NotFound.module.css'
 import Asset from "./Asset";
 
 function Code404() {

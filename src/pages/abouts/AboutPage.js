@@ -2,7 +2,10 @@
 // About page for KKImage
 //
 import React from "react";
-import { Card, Container } from "react-bootstrap";
+
+import Card from "react-bootstrap/Card";
+import Container from "react-bootstrap/Container";
+
 import hero from "../../assets/hero.jpg";
 
 function AboutPage() {

@@ -2,14 +2,19 @@
 // Individual photo layout and allow owner delete
 //
 import React, { useState } from "react";
-import { Card, Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { axiosReq } from "../../api/axiosDefaults";
-import Avatar from "../../components/Avatar";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import styles from "../../styles/Photo.module.css";
+
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
 import Button from "react-bootstrap/Button";
 import btnStyles from "../../styles/Button.module.css";
+
+import { Link } from "react-router-dom";
+import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
+import Avatar from "../../components/Avatar";
+import styles from "../../styles/Photo.module.css";
+
 import DeleteConfirmation from "../../components/DeleteConfirmation";
 
 const Photo = (props) => {

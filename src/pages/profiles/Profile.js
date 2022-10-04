@@ -2,13 +2,17 @@
 // Profile component for individual profile
 //
 import React from "react";
+
 import styles from "../../styles/Profile.module.css";
 import btnStyles from "../../styles/Button.module.css";
+
+import Button from "react-bootstrap/Button";
+
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { Button } from "react-bootstrap";
 import { useSetProfileData } from "../../contexts/ProfileDataContext";
+import { Link } from "react-router-dom";
+
+import Avatar from "../../components/Avatar";
 
 const Profile = (props) => {
   const { profile, mobile, imageSize = 40 } = props;

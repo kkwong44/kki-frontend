@@ -3,10 +3,14 @@
 // Configure for mobile and desktop devices
 //
 import React from "react";
-import { Container } from "react-bootstrap";
+
+import Container from "react-bootstrap/Container";
+
 import appStyles from "../../App.module.css";
-import Asset from "../../components/Asset";
+
 import { useProfileData } from "../../contexts/ProfileDataContext";
+
+import Asset from "../../components/Asset";
 import Profile from "./Profile";
 
 const PopularProfiles = ({ mobile }) => {

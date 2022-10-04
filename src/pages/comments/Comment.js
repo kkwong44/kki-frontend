@@ -3,14 +3,19 @@
 // Handle edit and delete owner's comments
 //
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
+
+import Media from "react-bootstrap/Media";
+
 import Avatar from "../../components/Avatar";
 import DeleteConfirmation from "../../components/DeleteConfirmation";
+
+import { Link } from "react-router-dom";
+import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+
 import styles from "../../styles/Comment.module.css";
+
 import CommentEditForm from "./CommentEditForm";
 
 const Comment = (props) => {
