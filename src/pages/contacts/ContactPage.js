@@ -32,7 +32,7 @@ function ContactPage() {
         const { data: contacts } = await axiosReq.get(`/contacts`);
         setContacts(contacts);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount();

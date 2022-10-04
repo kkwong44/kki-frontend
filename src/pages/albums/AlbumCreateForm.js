@@ -88,7 +88,6 @@ function AlbumCreateForm() {
       const { data } = await axiosReq.post("/albums/", formData);
       history.push(`/albums/${data.id}`);
     } catch (err) {
-      // console.log(err)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

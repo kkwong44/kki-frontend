@@ -99,7 +99,6 @@ function AlbumEditForm() {
       await axiosReq.put(`/albums/${id}`, formData);
       history.push(`/albums/${id}`);
     } catch (err) {
-      // console.log(err)
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

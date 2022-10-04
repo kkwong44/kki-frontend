@@ -32,7 +32,7 @@ const PopularAlbums = ({ mobile }) => {
           popularAlbums: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount(currentUser);
