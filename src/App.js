@@ -19,7 +19,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import AlbumCommentsPage from "./pages/albums/AlbumCommentsPage";
 import AboutPage from "./pages/abouts/AboutPage";
-import Code404 from "./pages/Errors/Code404";
+import Code404 from "./components/Code404";
 import ContactPage from "./pages/contacts/ContactPage";
 import ContactEditForm from "./pages/contacts/ContactEditForm";
 
