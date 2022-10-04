@@ -14,10 +14,10 @@ function ContactPage() {
   const [contacts, setContacts] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const history = useHistory();
-
-  // Check username - admin allows to edit contact details
+ 
+  // Only company staffs allow to edit contact details
   // Use the first record from contacts
-  const is_admin = currentUser?.username === "admin";
+  const is_staff = currentUser?.staff;
   const company = contacts.results[0];
 
   useEffect(() => {
@@ -53,8 +53,8 @@ function ContactPage() {
               {company?.email}
             </a>
           </Card.Body>
-          {/* Only show edit button for user admin */}
-          {is_admin ? (
+          {/* Only show edit button for company staffs */}
+          {is_staff ? (
             <Button
               className={`${btnStyles.Button} ${btnStyles.Blue} mb-3`}
               onClick={() => history.push(`/contacts/edit`)}

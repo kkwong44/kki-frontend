@@ -16,10 +16,15 @@ import btnStyles from "../../styles/Button.module.css";
 import { Alert } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ContactEditForm() {
   const [errors, setErrors] = useState({});
   const history = useHistory();
+  const currentUser = useCurrentUser();
+
+  // Only company staff can access to this page
+  const is_staff = currentUser?.staff;
 
   const [contactData, setContactData] = useState({
     id: "",
@@ -307,26 +312,36 @@ function ContactEditForm() {
   );
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Container className={`${appStyles.Content} py-2 p-0 p-md-2 mt-3`}>
-        <h1 className="text-center mb-3">Company Detail</h1>
-        <div>{textFields}</div>
-        <div className="text-right mb-2">
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            onClick={() => history.goBack()}
-          >
-            cancel
-          </Button>
-          <Button
-            className={`${btnStyles.Button} ${btnStyles.Blue}`}
-            type="submit"
-          >
-            save
-          </Button>
-        </div>
-      </Container>
-    </Form>
+    <>
+      <Form onSubmit={handleSubmit}>
+        <Container className={`${appStyles.Content} py-2 p-0 p-md-2 mt-3`}>
+          <h1 className="text-center mb-3">Company Detail</h1>
+          {is_staff ? (
+            <div>{textFields}</div>
+          ) : (
+            <div className="text-center">
+              Only administrator can access to this page.
+            </div>
+          )}
+          {is_staff ? (
+            <div className="text-right mb-2">
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                onClick={() => history.goBack()}
+              >
+                cancel
+              </Button>
+              <Button
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                type="submit"
+              >
+                save
+              </Button>
+            </div>
+          ) : null}
+        </Container>
+      </Form>
+    </>
   );
 }
 
