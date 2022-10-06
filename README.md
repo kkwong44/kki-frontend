@@ -1,70 +1,100 @@
-# Getting Started with Create React App
+# KK Images
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+KK Images is a free online service for photographers who want to showcase their works. There are no restrictions on the photographer's skills to register and post their works. Non photographers can also register to the site and follow the photographers. They can like and leave comments to the works posted by the photographers.
 
-## Available Scripts
+This platform also can be used to share photography experiences, techniques, looking for a photographer and general discussions. The registered photographers on this site can be contacted when they leave an email address in their profile page.
 
-In the project directory, you can run:
+Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live site.
 
-### `npm start`
+*Screenshot - Mockup on KKImages App, generated from [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php)*
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![Screenshot on Mockup](readme/images/mockup.png) ***To be filled in
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
+### Objectives
 
-### `npm test`
+The main objective of this site is to provide a platform for photographers to showcase their works online. The frontend and backend of this site has been built separately and use React and Django Rest Framework for the frontend to access the backend API.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The target audients are split into photographers and general users.
 
-### `npm run build`
+* Photographers – create and maintain photo albums
+* General user – view photo albums, follow photographers, like and leave comments to photo albums
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Application Goals
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* Create a community for photographers to share their works and potentially get hired to commission a job
+* A platform that allows hobbyists to browse and get inspirations from the works posted by the photographers
+* A platform that allows user to find and hire a photographer
+* A platform to share expriences, photography techinques and general discussions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### User Goals
 
-### `npm run eject`
+* Any users can view posts on the site.
+* Signup to create albums with photos.
+* Registered users can maintain their personal profile and albums.
+* Registered users can leave comments, like albums and follow other users.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
+## Application Design
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This part of the project is to design a frontend of to provide a user interface application for accessing the data from the backend. As mentioned in the objectives, the frontend application will be built using React.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Initial Design
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The following are initial wireframe designs to meet the main objective.
 
-## Learn More
+*Wireframe - Home Page*
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![Wireframe on Home Page](readme/images/wireframe-home-page.jpg)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+*Wireframe - Example of an Album Detail Page with Photos*
 
-### Code Splitting
+![Wireframe on Album Detail with Photos Page](readme/images/wireframe-album-detail-page.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+*Wireframe - Album Comments Page*
 
-### Analyzing the Bundle Size
+![Wireframe on Album Comments Page](readme/images/wireframe-album-comments-page.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+*Wireframe - Albums by Profile Page*
 
-### Making a Progressive Web App
+![Wireframe on Albums by Profile Page](readme/images/wireframe-albums-by-profile-page.jpg)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Design Approach
 
-### Advanced Configuration
+The development approach on this project is based on the Principles of Agile and use the common agile practices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The design has broken down into User Stories and grouped into Epics. Each User Story has been allocated its priority, story point and set acceptance criteria and tasks. Timeboxing approach will be used to process the product backlog.
 
-### Deployment
+#### User Stories
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+***To be filled in
 
-### `npm run build` fails to minify
+#### Kanban Board
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In development, Kanban Board was used to schedule the execution of the user stories. This approach allows to allocating user stories by priority and monitoring each user story's progress.
+
+The Kanban board below shows all the user stories were initially in the 'To Do' list column. Then at different stage of the development, each one is moved into 'In Progress' column and finally into 'Done' column when it has completed. All user stories that are not included in this iteration are moved into 'Out of Current Scope' column.
+
+---
+## Features
+
+---
+## Future Features
+
+---
+## Testing
+
+---
+## Bugs
+
+---
+## Deployment
+
+---
+## Tools
+
+---
+## Credits
+
+---
+## Acknowledgment

@@ -25,7 +25,9 @@ function AboutPage() {
               posted by the photographers.
             </Card.Text>
             <Card.Text>
-              The registered photographers on this sites can be contacted when
+              This platform also can be used to share photography experiences,
+              techniques, looking for a photographer and general discussions.
+              The registered photographers on this site can be contacted when
               they leave an email address in their profile page.
             </Card.Text>
           </Card.Body>
