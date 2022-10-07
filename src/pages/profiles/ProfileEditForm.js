@@ -34,8 +34,9 @@ const ProfileEditForm = () => {
     content: "",
     image: "",
     email: "",
+    staff: "",
   });
-  const { name, content, image, email } = profileData;
+  const { name, content, image, email, staff } = profileData;
 
   const [errors, setErrors] = useState({});
 
@@ -45,8 +46,8 @@ const ProfileEditForm = () => {
       if (currentUser?.profile_id?.toString() === id) {
         try {
           const { data } = await axiosReq.get(`/profiles/${id}/`);
-          const { name, content, image, email } = data;
-          setProfileData({ name, content, image, email });
+          const { name, content, image, email, staff } = data;
+          setProfileData({ name, content, image, email, staff });
         } catch (err) {
           history.push("/");
         }
@@ -73,6 +74,7 @@ const ProfileEditForm = () => {
     formData.append("name", name);
     formData.append("content", content);
     formData.append("email", email);
+    formData.append("staff", staff);
 
     if (imageFile?.current?.files[0]) {
       formData.append("image", imageFile?.current?.files[0]);
