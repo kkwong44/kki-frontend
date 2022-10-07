@@ -9,7 +9,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
-function CommentEditForm(props) {
+const CommentEditForm = (props) => {
   const { id, content, setShowEditForm, setComments } = props;
 
   const [formContent, setFormContent] = useState(content);
@@ -30,10 +30,10 @@ function CommentEditForm(props) {
         results: prevComments.results.map((comment) => {
           return comment.id === id
             ? {
-                ...comment,
-                content: formContent.trim(),
-                updated_at: "now",
-              }
+              ...comment,
+              content: formContent.trim(),
+              updated_at: "now",
+            }
             : comment;
         }),
       }));

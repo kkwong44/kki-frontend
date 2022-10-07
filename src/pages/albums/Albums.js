@@ -5,7 +5,7 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import styles from '../../styles/Albums.module.css'
+import styles from "../../styles/Albums.module.css"
 
 const Albums = (props) => {
   const { album, mobile, imageSize = 40 } = props;

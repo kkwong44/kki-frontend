@@ -27,7 +27,7 @@ import Asset from "../../components/Asset";
 import PopularProfiles from "../profiles/PopularProfiles";
 import CommentMobile from "../comments/CommentMobile";
 
-function AlbumPage() {
+const AlbumPage = () => {
   const { id } = useParams();
   const [album, setAlbum] = useState({ results: [] });
   const [owner, setOwner] = useState();

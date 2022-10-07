@@ -19,7 +19,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useParams } from "react-router-dom";
 
-function AlbumEditForm() {
+const AlbumEditForm = () => {
   const [errors, setErrors] = useState({});
 
   const [albumData, setAlbumData] = useState({

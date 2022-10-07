@@ -24,7 +24,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
 import Photo from "../photos/Photo";
 
-function AlbumCommentsPage() {
+const AlbumCommentsPage = () => {
   const { id } = useParams();
   const [album, setAlbum] = useState({ results: [] });
   const [owner, setOwner] = useState();

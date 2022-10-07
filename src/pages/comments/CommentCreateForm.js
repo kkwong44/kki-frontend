@@ -12,7 +12,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 
 import styles from "../../styles/CommentCreateEditForm.module.css";
 
-function CommentCreateForm(props) {
+const CommentCreateForm = (props) => {
   const { album, setAlbum, setComments, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
 

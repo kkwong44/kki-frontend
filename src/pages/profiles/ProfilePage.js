@@ -33,7 +33,7 @@ import PopularProfiles from "./PopularProfiles";
 import Album from "../albums/Album";
 import PopularAlbums from "../albums/PopularAlbums";
 
-function ProfilePage() {
+const ProfilePage = () => {
   const [hasLoaded, setHasLoaded] = useState(false);
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -134,7 +134,7 @@ function ProfilePage() {
   const mainProfileAlbums = (
     <>
       <hr />
-      <p className="text-center">{profile?.owner}'s albums</p>
+      <p className="text-center">{profile?.owner}&apos;s albums</p>
       <hr />
       {profileAlbums.results.length ? (
         <InfiniteScroll

@@ -25,7 +25,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import PopularProfiles from "../profiles/PopularProfiles";
 import PopularAlbums from "./PopularAlbums";
 
-function AlbumListPage({ message, filter = "" }) {
+const AlbumListPage = ({ message, filter = "" }) => {
   const [albums, setAlbums] = useState({ results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();

@@ -23,7 +23,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
-function AlbumCreateForm() {
+const AlbumCreateForm = () => {
   useRedirect("loggedOut");
 
   const [errors, setErrors] = useState({});

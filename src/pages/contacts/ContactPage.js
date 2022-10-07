@@ -16,7 +16,7 @@ import { useHistory } from "react-router-dom";
 import btnStyles from "../../styles/Button.module.css";
 import hero from "../../assets/hero.jpg";
 
-function ContactPage() {
+const ContactPage = () => {
   const [contacts, setContacts] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const history = useHistory();
@@ -80,7 +80,7 @@ function ContactPage() {
               </thead>
               <tbody>
                 {contacts.results.map((contact) => (
-                  <tr>
+                  <tr key={contact.id}>
                     <td>{contact.department}</td>
                     <td>{contact.contact}</td>
                     <td>{contact.email}</td>

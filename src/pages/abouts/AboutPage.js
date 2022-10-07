@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 
 import hero from "../../assets/hero.jpg";
 
-function AboutPage() {
+const AboutPage = () => {
   return (
     <>
       <Container className="mt-3">
@@ -19,7 +19,7 @@ function AboutPage() {
             <Card.Text>
               KK Images is a free online service for photographers who want to
               showcase their works. There are no restrictions on the
-              photographer's skills to register and post their works. Non
+              photographer&apos;s skills to register and post their works. Non
               photographers can also register to the site and follow the
               photographers. They can like and leave comments to the works
               posted by the photographers.

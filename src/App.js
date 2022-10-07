@@ -23,7 +23,7 @@ import Code404 from "./components/Code404";
 import ContactPage from "./pages/contacts/ContactPage";
 import ContactEditForm from "./pages/contacts/ContactEditForm";
 
-function App() {
+const App = () => {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
