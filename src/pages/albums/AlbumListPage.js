@@ -77,6 +77,7 @@ const AlbumListPage = ({ message, filter = "" }) => {
         {hasLoaded ? (
           <>
             {/* Load list of albums and apply infinite scroll */}
+            <div className="text-center mb-2">Photo Albums</div>
             {albums.results.length ? (
               <InfiniteScroll
                 children={albums.results.map((album) => (

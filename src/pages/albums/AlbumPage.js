@@ -85,6 +85,7 @@ const AlbumPage = () => {
         </Container>
         {/* List photos - Logged in user only */}
         <Container className={appStyles.Content}>
+          <div className="text-center mb-2">Album Photo Gallery</div>
           {currentUser && photos.results.length ? (
             <InfiniteScroll
               children={photos.results.map((photo) => (
