@@ -34,12 +34,25 @@ const PhotoCreateForm = (props) => {
   const imageInput = useRef(null);
   const history = useHistory();
 
+  // Reset values when cnacel button has been clicked
+  const resetImageInput = () => {
+    // 👇️ reset image value and clear all current alert messages
+    imageInput.current.value = null;
+    history.push(
+      `/albums/${album}`,
+      setPhotoData({ title: "", photo_image: "" }),
+      setErrors(""),
+    )          
+  };
+
   // Handle change in input fields
   const handleChange = (event) => {
     setPhotoData({
       ...photoData,
       [event.target.name]: event.target.value,
     });
+    // Clear all current alert messages on screen
+    setErrors("");
   };
 
   // Handle change in image upload
@@ -50,7 +63,11 @@ const PhotoCreateForm = (props) => {
         ...photoData,
         photo_image: URL.createObjectURL(event.target.files[0]),
       });
-    }
+    } else
+      // Clear any previous data
+      setPhotoData({ title: "", photo_image: "" })
+    // Clear all current alert messages on screen
+    setErrors("");
   };
 
   // Handle form submission
@@ -109,11 +126,7 @@ const PhotoCreateForm = (props) => {
       {/* Cancel and create buttons */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() =>
-          history.push(
-            `/albums/${album}`,
-            setPhotoData({ title: "", photo_image: "" })
-          )
+        onClick={() => resetImageInput()
         }
       >
         cancel
