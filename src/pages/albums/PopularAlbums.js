@@ -35,8 +35,8 @@ const PopularAlbums = ({ mobile }) => {
         // console.log(err);
       }
     };
-    handleMount(currentUser);
-  });
+    handleMount();
+  }, [currentUser]);
 
   return (
     <Container
