@@ -34,13 +34,14 @@ const AlbumCreateForm = () => {
     content: "",
     category_filter: "",
     cover_image: "",
+    skill_level: "",
   });
 
   const [categoryList, setCategoryList] = useState([
     { display_name: "", value: "" },
   ]);
 
-  const { title, content, category_filter, cover_image } = albumData;
+  const { title, content, category_filter, cover_image, skill_level } = albumData;
   const imageInput = useRef(null);
   const history = useHistory();
 
@@ -63,6 +64,15 @@ const AlbumCreateForm = () => {
     });
   };
 
+  // Handle radio selection
+  const handleRadioChange = event => {
+    setAlbumData(event.target.value);
+    setAlbumData({
+      ...albumData,
+      skill_level: event.target.value,
+    });
+  };
+ 
   // Handle change in image upload
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
@@ -82,6 +92,7 @@ const AlbumCreateForm = () => {
     formData.append("title", title);
     formData.append("content", content);
     formData.append("category_filter", category_filter);
+    formData.append("skill_level", skill_level);
     formData.append("cover_image", imageInput.current.files[0]);
 
     try {
@@ -134,6 +145,60 @@ const AlbumCreateForm = () => {
           {message}
         </Alert>
       ))}
+      {/* Album skill level radio button input */}
+      <Form.Group>
+        <Form.Label>Skill Level</Form.Label>
+        <Container className={styles.Content}>
+          <div key="inline-radio" className="mb-3">
+            <Form.Check
+              className="mr-0"
+              type="radio"
+              id="inline-radio-1"
+              inline
+              value="Professional"
+              checked={skill_level === "Professional"}
+              onClick={handleRadioChange}
+              aria-label="professional"
+            />
+            <Form.Label className="pr-4">Professional</Form.Label>
+            <Form.Check
+              className="mr-0"
+              type="radio"
+              id="inline-radio-2"
+              inline
+              value="Amateur"
+              checked={skill_level === "Amateur"}
+              onClick={handleRadioChange}
+              aria-label="amateur"
+            />
+            <Form.Label>Amateur</Form.Label>
+            <div>
+            </div>
+            <Form.Check
+              className="mr-0"
+              type="radio"
+              id="inline-radio-2"
+              inline
+              value="Hobbyist"
+              checked={skill_level === "Hobbyist"}
+              onClick={handleRadioChange}
+              aria-label="hobbyist"
+            />
+            <span className="pr-4" >Hobbyist</span>
+            <Form.Check
+              className="mr-0"
+              type="radio"
+              id="inline-radio-3"
+              inline
+              value="Other"
+              checked={skill_level === "Other"}
+              onClick={handleRadioChange}
+              aria-label="other"
+            />
+            <span className="pr-4" >Other</span>
+          </div>
+        </Container>
+      </Form.Group>
       {/* Album descripton input */}
       <Form.Group>
         <Form.Label>Content</Form.Label>
