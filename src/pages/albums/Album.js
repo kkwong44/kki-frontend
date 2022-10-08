@@ -34,6 +34,7 @@ const Album = (props) => {
     content,
     cover_image,
     category_filter,
+    skill_level,
     updated_at,
     albumPage,
     setAlbums,
@@ -121,7 +122,11 @@ const Album = (props) => {
             </Link>
             {/* Date last updated and show menu for album's owner */}
             <div className="d-flex align-items-center">
-              <span>{updated_at}</span>
+              <span className="pr-1 d-none d-sm-block">
+                <small>{updated_at}</small>
+                <br />
+                <small className="text-muted">Last updated</small>
+              </span>
               {is_owner && albumPage && (
                 <MoreDropdown
                   handleEdit={handleEdit}
@@ -130,6 +135,10 @@ const Album = (props) => {
               )}
             </div>
           </Media>
+          <span className="pr-1 d-block d-sm-none text-left mt-3">
+            <small className="text-muted">Last updated: </small>
+            <small className="text-muted">{updated_at}</small>
+          </span>
         </Card.Body>
       </Card.Body>
       {/* Album id */}
@@ -197,6 +206,15 @@ const Album = (props) => {
               <i className="fas fa-image" />
               {photos_count}
             </Link>
+          )}
+          {skill_level === "Other" ? (
+            <Card.Text>
+              <small className="text-muted">Photos taken by General Photographer</small>
+            </Card.Text>
+          ) : (
+            <Card.Text>
+              <small className="text-muted">Photos taken by {skill_level} Photographer</small>
+            </Card.Text>
           )}
         </div>
       </Card.Body>
