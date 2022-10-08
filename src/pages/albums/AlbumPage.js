@@ -8,6 +8,7 @@ import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
 
 import appStyles from "../../App.module.css";
+import styles from "../../styles/Album.module.css";
 
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -68,7 +69,7 @@ const AlbumPage = () => {
         <PopularProfiles mobile />
         <CommentMobile mobile id={id} />
 
-        <Container>
+        <Container className={styles.W90}>
           <Album {...album.results[0]} setAlbums={setAlbum} albumPage />
         </Container>
         {/* Form to add photo - only logged in owner */}
