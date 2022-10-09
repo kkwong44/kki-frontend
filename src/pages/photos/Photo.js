@@ -94,7 +94,7 @@ const Photo = (props) => {
           </Media>
         </Card.Body>
         {/* Photo id */}
-        <div className="text-center mt-3">Photo #{id}</div>
+        <small className="text-center text-muted mt-3">site image id: {id}</small>
         {/* Photo image */}
         <div className="text-center">
           <Card.Img src={photo_image} alt={title} className={styles.Border} />

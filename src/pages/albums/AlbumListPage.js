@@ -71,7 +71,7 @@ const AlbumListPage = ({ message, filter = "" }) => {
             onChange={(event) => setQuery(event.target.value)}
             type="Text"
             className="mr-sm-2"
-            placeholder="Search posts"
+            placeholder="Search albums"
           />
         </Form>
         {hasLoaded ? (
