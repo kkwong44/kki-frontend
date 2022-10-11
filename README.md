@@ -11,6 +11,28 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 ![Screenshot on Mockup](readme/images/site-mockup.png)
 
 ---
+## Table of Contents
+* [Objectives](#objectives)
+    * [Application Goals](#application-goals)
+    * [User Goals](#user-goals)
+* [Application Design](#application-design)
+    * [React Application](#react-application)
+    * [Initial Design](#initial-design)
+        * [Wireframe Designs](#wireframe-designs)
+    * [Design Approach](#design-approach)
+        * [User Stories](#user-stories)
+        * [Kanban Board](#kanban-board)
+* [Project Requirements](#project-requirements)
+* [Features](#features)
+* [Future Features](#future-features)
+* [Testing](#testing)
+* [Bugs](#bugs)
+* [Deployment](#deployment)
+* [Tools](#tools)
+* [Credits](#credits)
+* [Acknowledgment](#acknowledgment)
+
+---
 ### Objectives
 
 The main objective of this site is to provide a platform for photographers to showcase their works online. The frontend and backend of this site has been built separately and use React and Django Rest Framework for the frontend to access the backend API.
@@ -34,6 +56,8 @@ The target audients are split into photographers and general users.
 * Registered users can maintain their personal profile and albums.
 * Registered users can leave comments, like albums and follow other users.
 
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Application Design
 
@@ -55,7 +79,7 @@ By coupling it with a full stack framework like Django, you can build powerful f
 
 This project will follow the React philosophy by building reusable components and coupling to the Django Rest Framework project https://kkimages-drf-api.herokuapp.com/
 
-**Wireframe Designs**
+#### Wireframe Designs
 
 The following are initial wireframe designs to meet the main objective.
 
@@ -91,17 +115,27 @@ In development, Kanban Board was used to schedule the execution of the user stor
 
 The Kanban board below shows all the user stories were initially in the 'To Do' list column. Then at different stage of the development, each one is moved into 'In Progress' column and finally into 'Done' column when it has completed. All user stories that are not included in this iteration are moved into 'Out of Current Scope' column.
 
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Features
+
+*[Back to Contents](#table-of-contents)*
 
 ---
 ## Future Features
 
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Testing
 
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Bugs
+
+*[Back to Contents](#table-of-contents)*
 
 ---
 ## Deployment
@@ -109,8 +143,12 @@ The Kanban board below shows all the user stories were initially in the 'To Do' 
 ---
 ## Tools
 
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Credits
+
+*[Back to Contents](#table-of-contents)*
 
 ---
 ## Acknowledgment
