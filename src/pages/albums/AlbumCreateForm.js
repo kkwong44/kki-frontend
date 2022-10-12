@@ -199,6 +199,11 @@ const AlbumCreateForm = () => {
           </div>
         </Container>
       </Form.Group>
+      {errors.skill_level?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
       {/* Album descripton input */}
       <Form.Group>
         <Form.Label>Content</Form.Label>
