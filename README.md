@@ -107,13 +107,23 @@ The design has broken down into User Stories and grouped into Epics. Each User S
 
 #### User Stories
 
-***To be filled in
+There are 41 user stories identified for the frontend at the beginning of the project and they were grouped into 9 Epics as listed in the table below
+
+**[User Stories Full Detailed Report (Click to view)](readme/user-stories/user-stories.md#user-stories)**
+
+*Summary of Epics and User Stories*
+
+![Summary of User Stories](readme/user-stories/frontend-user-stories-summary.jpg)
 
 #### Kanban Board
 
 In development, Kanban Board was used to schedule the execution of the user stories. This approach allows to allocating user stories by priority and monitoring each user story's progress.
 
 The Kanban board below shows all the user stories were initially in the 'To Do' list column. Then at different stage of the development, each one is moved into 'In Progress' column and finally into 'Done' column when it has completed. All user stories that are not included in this iteration are moved into 'Out of Current Scope' column.
+
+*Snapshot of the Kanban Board*
+
+![Kanban Board](readme/images/kanban-board.png)
 
 *[Back to Contents](#table-of-contents)*
 
