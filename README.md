@@ -27,6 +27,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 * [Features](#features)
 * [Future Features](#future-features)
 * [ESLint Checker](#eslint-checker)
+* [CSS Validator Testing](#css-validator-testing)
 * [Testing](#testing)
 * [Bugs](#bugs)
 * [Deployment](#deployment)
@@ -585,6 +586,17 @@ Based on the eslint setup, all codes have passed the checker as show below.
 ![ESLint](readme/images/eslint.png)
 
 *[Back to Contents](#table-of-contents)*
+
+---
+## CSS Validator Testing
+
+Validator testing is used to validate codes that are legally written and to identify any possible errors. This can be done by using online automated testing tools to scan through the codes. The tools used for this project are
+
+* W3C CSS Validation Service to validate CSS - https://jigsaw.w3.org/css-validator/
+
+The source code can be copied and paste directly into the validator to perform the test. A report will be generated with the test results where it identified the errors. The validator will show passed when the code is free of error.
+
+***All css files from this application have been gone through this validation test and no errors have been found.***
 
 ---
 ## Testing
