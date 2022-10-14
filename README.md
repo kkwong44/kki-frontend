@@ -130,10 +130,368 @@ The Kanban board below shows all the user stories were initially in the 'To Do' 
 ---
 ## Features
 
+### Navigation Bar
+
+All pages have a navigation bar. The items on the navigation bar depends on the user status as show below.
+
+* For signed out user: Create album, Liked and Profile icons are not available but an option to Sign in or Sign up to the site.
+
+* For signed in user: Sign in and Sign up icons are replaced with Sing out icon with additional Create Album, Liked and user Profile icons.
+
+*Signed Out User Navigation Bar*
+
+![Home Page](readme/images/navbar-signed-out.png)
+
+
+*Signed In User Navigation Bar*
+
+![Home Page](readme/images/navbar-signed-in.png)
+
+The following user stories has been implemented in this section.
+
+* ***[User Story #6 - Logged in status](readme/user-stories/frontend-user-story-6.jpg)***
+* ***[User Story #17 - Navigation Bar](readme/user-stories/frontend-user-story-17.jpg)***
+* ***[User Story #18 - Routing](readme/user-stories/frontend-user-story-18.jpg)***
+* ***[User Story #19 - Conditional Rendering](readme/user-stories/frontend-user-story-19.jpg)***
+
+### Create A New Album
+
+Albums can be created for signed up users. This option only available when user signed in to the site and the Create Album button will appear on the navigation bar.
+
+A form will be presented as show below image when the user clicked on the button.
+
+The user required to upload an image, input a title and skill level in order to create a new album. These mandatory fields will be validated when the user clicked the create button messages will be returned when the validation is failed.
+
+A new album will be created and display on the album detail page when passed the validation check.
+
+*Form to Create A New Album*
+
+![Create  New Album](readme/images/album-create.png)
+
+The following user story has been implemented for this part of development.
+
+* ***[User Story #20 - Create Albums](readme/user-stories/frontend-user-story-20.jpg)***
+
+### Home Page
+
+This page list all the albums created by all users. The most recent updated album will be listed at the top and the user can scroll down infinitely until it reached to the last album.
+
+The following user stories has been implemented in this section.
+
+* ***[User Story #3 -General browser](readme/user-stories/frontend-user-story-3.jpg)***
+* ***[User Story #24 - View most recent albums](readme/user-stories/frontend-user-story-24.jpg)***
+* ***[User Story #26 - Albums Infinite scroll](readme/user-stories/frontend-user-story-26.jpg)***
+
+*Example of Home page*
+
+![Home Page](readme/images/album-home-page.png)
+
+#### Search Bar
+
+On this page it has a search bar above the list of photo albums ("Album Covers"). User can search by keyword from Title, username and skill level.
+
+* ***[User Story #25 - Search Album](readme/user-stories/frontend-user-story-25.jpg)***
+
+#### Album Cover
+
+Each album has the following contents listed from top left of the album cover:
+
+* User profile avatar and username
+
+    A link to the user profile page. Signed in user can view and owner can edit their profile by clicking on this icon. See below section on [Profile Page](#profile-page) for more detail.
+
+* Last updated date
+
+    Date when the album is last updated by the owner.
+
+* Album reference number
+
+    Site album reference id.
+
+* Album cover image
+
+    The photos for the album will be loaded when user clicked in image area. See [Album Photos](#album-photos) section for more details.
+
+* Album title
+
+    Album title description.
+
+* Type of photography
+
+    Photography category from list.
+
+* Album description
+
+    Description about the album.
+
+* Like and count button
+
+    Signed in user can like or unlike album by clicking the heart icon. Also show the total likes from all user to this album. Tooltip reminder that owner cannot like their own albums.
+
+* ***[User Story #27 - Like and unlike albums](readme/user-stories/frontend-user-story-27.jpg)***
+
+* Comment and count button
+
+    Signed in user can comment album by clicking the comment icon. See [Album Comments Page](#album-comments-page) section for more details. It also shows the total comments from all user to this album.
+
+* Photo and count button
+
+    Signed in user can see the album photos by clicking the image icon. See [Album Photos](#album-photos) section for more details. It also shows the number of photos for this album. 
+
+* Photography skill level
+
+    Indicate the skill level of the photographer who taken the photos in this album.
+
+#### Sidebar Components
+
+There are two components on the sidebar on this page
+
+* Most Followed Profiles
+
+    This component lists the top 5 most followed profiles or 4 on mobile devices. Signed in user can follow or unfollow the profiles from this list. Other profiles can be followed or unfollowed by going into the user profile by selecting the profile’s avatar in the album. 
+
+* ***[User Story #15 - Popular profiles](readme/user-stories/frontend-user-story-15.jpg)***
+* ***[User Story #16 - Follow user](readme/user-stories/frontend-user-story-16.jpg)***
+
+* Most Liked Albums
+
+    This component lists the top 5 most liked albums or 4 on mobile devices. This is determined by number of likes in each album and user can like or unlike the album from the album cover.
+
+* ***[User Story #22 - Poplar Albums](readme/user-stories/frontend-user-story-22.jpg)***
+
+### Album Photos
+
+This is a detail page of the album. The album cover will be loaded at the top of the page and the contents are the same as in the list page. The only additional item on the cover is Three Dots menu bar is available to the album owner. The menu lets the owner to edit or delete the album.
+
+***[User Story #21 - Edit and Delete Albums](readme/user-stories/frontend-user-story-21.jpg)***
+
+*Expanded Three Dots Menu Bar for the album owner*
+
+![Owner Menu Bar](readme/images/album-owner-menu.png)
+
+*Album Edit Form for the album owner*
+
+![Owner Menu Bar](readme/images/album-edit-form.png)
+
+A form to insert photos into the album will only show on this page to the owner for adding new photo to the album.
+
+*Form For adding Photo to the album and Photo Delete Button*
+
+![Photo Owner Add and Delete](readme/images/photo-owner-create-and-delete.png)
+
+Underneath the album covers there is an album photo gallery section and the following user stories have been implemented.
+
+* ***[User Story #28 - Albums Photos](readme/user-stories/frontend-user-story-28.jpg)***
+* ***[User Story #29 - Add Photos](readme/user-stories/frontend-user-story-29.jpg)***
+* ***[User Story #30 - Delete Photos](readme/user-stories/frontend-user-story-30.jpg)***
+* ***[User Story #32 - Album Photos Infinite scroll](readme/user-stories/frontend-user-story-32.jpg)***
+
+
+
+In this section there are three possible results:
+
+* Ask user to sign in to see the photos
+* No photos have been uploaded yet
+* A list of photos and the user can infinitely scroll down till the end of the photos in the album. The most recent added photos will be listed from the top in descending order.
+
+Each photo has the following contents:
+	
+* User profile avatar and username
+    
+    A link to the user profile page. Signed in user can view and owner can edit their profile by clicking on this icon. See below section on [Profile Page](#profile-page) for more detail.
+
+* A Delete button is available to the album owner for deleting this photo from the album
+
+* A site image id
+
+    Internal site reference id to this photo image
+
+* Photo Image area
+
+    An area to show the uploaded image
+
+* Photo ref:
+
+    Owner can input any reference or description to this photo
+
+#### Sidebar Components
+
+There are three components on the sidebar on this page
+
+* Most Followed Profiles
+
+    This component lists the top 5 most followed profiles or 4 on mobile devices. Signed in user can follow or unfollow the profiles from this list. Other profiles can be followed or unfollowed by going into the user profile by selecting the profile’s avatar in the album. 
+ 
+* Most Liked Albums
+
+    This component lists the top 5 most liked albums or 4 on mobile devices. This is determined by number of likes in each album and user can like or unlike the album from the album cover.
+
+* Comments
+    A list of comments will be shown here in descending order by date. Signed in user can leave a comments about the album and the owner of the comment can edit and delete their own comments.
+
+*Example of Album Photos Page*
+
+![Album Photos Page](readme/images/album-photo-page.png)
+
+*Example of Album Owner Photos Page*
+
+![Album Owner Photos Page](readme/images/album-owner-photo-page.png)
+
+### Album Comments Page
+
+This is another detail page of the album. Instead of listing the photos underneath the album it will be replaced with the comments left by the users to this album. The list of photos is now become the sidebar component. All functionality remains the same as in album photos and the following user stories have been implemented.
+
+* ***[User Story #34 - View Comments](readme/user-stories/frontend-user-story-34.jpg)***
+* ***[User Story #35 - Add Comments](readme/user-stories/frontend-user-story-35.jpg)***
+* ***[User Story #36 - Edit Comments](readme/user-stories/frontend-user-story-36.jpg)***
+* ***[User Story #37 - Delete Comments](readme/user-stories/frontend-user-story-37.jpg)***
+* ***[User Story #38 - Album Comments Infinite scroll](readme/user-stories/frontend-user-story-38.jpg)***
+
+*Example of Album Comments Page*
+
+![Album Comments Page](readme/images/album-comments-page.png)
+
+*Example of Album Owner Comments Page*
+
+![Album Owner Comments Page](readme/images/album-owner-comments-page.png)
+
+### About Page
+
+This page gives a general overview about the site and its purposes.
+
+***[User Story #39 - About Page](readme/user-stories/frontend-user-story-39.jpg)***
+
+*About page*
+
+![About Page](readme/images/about-page.png)
+
+### Contact Page
+
+This page provides the contact details of the company. User can click on the email link and the email client will open with the address. It also provides a list of contacts from different department. Current feature only allow staff to edit the company details through this page. An edit button is available when a staff is signed in to this site otherwise this button is not available to other users.
+
+***[User Story #40 - Contact Page](readme/user-stories/frontend-user-story-40.jpg)***
+
+*Example of Contact page*
+
+![Contact Page](readme/images/contact-page.png)
+
+An edit form  is available to update the company details when the edit button is clicked by a member of staff id. The company record has been set to 1 for the department id.
+
+*Form to Edit Company Details*
+
+![Contact Edit Page](readme/images/contact-edit-form.png)
+
+### Liked Page
+
+When a signed in user clicked on the Liked icon on the navigation bar. The album list page will be filtered and loaded with list of albums that have been liked by current user.
+
+*Example of liked albums*
+
+![Liked Page](readme/images/liked-page.png)
+
+### Sign in Page
+
+This page allows the user to sign in to the site. Validation check will be carried out with detected error messages.
+
+*Form to Signing in*
+
+![Sign in Page](readme/images/sign-in-page.png)
+
+***[User Story #5 - Sign in and Sign out](readme/user-stories/frontend-user-story-5.jpg)***
+
+***[User Story #7 - Refreshing access tokens](readme/user-stories/frontend-user-story-7.jpg)***
+
+### Sign up Page
+
+This page allows the user to sign up to be a member of the site. Validation check will be carried out with detected error messages.
+
+*Form to Signing up*
+
+![Sign up Page](readme/images/sign-up-page.png)
+
+***[User Story #4 - Sign up](readme/user-stories/frontend-user-story-4.jpg)***
+
+### Profile page
+
+When a user clicks on a profile, the page will be filtered and loaded with the albums belong to the selected profile. The page also shows the details about the selected profilesas below:
+
+* Profile avatar
+* Username
+* Name
+* Email – link to email client
+* Number of Albums
+* Number of Followers
+* Number of Following
+* Biography
+
+    *Name, email and Biography only shows when there are data in these fields.*
+
+The following user stories has been implemented in this section.
+
+* ***[User Story #8 - View and Edit Account Profile](readme/user-stories/frontend-user-story-8.jpg)***
+* ***[User Story #10 - Update Password](readme/user-stories/frontend-user-story-10.jpg)***
+* ***[User Story #12 - Avatar](readme/user-stories/frontend-user-story-12.jpg)***
+* ***[User Story #13 - View user profiles](readme/user-stories/frontend-user-story-13.jpg)***
+* ***[User Story #14 - View Owner's Albums](readme/user-stories/frontend-user-story-14.jpg)***
+
+*Example of Profile Page*
+
+![Profile Page](readme/images/profile-page.png)
+
+A three dots menu bar is also available for the owner of the profile.
+
+* Allows to edit profile
+* Change Username
+* Change password
+
+
+*Expanded Three Dots Menu Bar*
+
+![Three Dots Menu Bar](readme/images/profile-owner-menu.png)
+
+*Form to Edit Profile*
+
+![Edit Profile Page](readme/images/profile-edit-form.png)
+
+*Change Profile Username*
+
+![Profile Change Username](readme/images/profile-change-username.png)
+
+*Change Profile Password*
+
+![Profile Change Password](readme/images/profile-change-password.png)
+
+### Responsive Design
+
+This application has been designed to response to different devices. The functionality will be the same as on mobile devices. The only difference is the side components will be displayed on the top as shown below:
+
+*Example of Mobile Home Page*
+
+![Mobile Home Page](readme/images/home-mobile-page.png)
+
+*Example of Mobile Album Photos Page*
+
+![Mobile Album Photos Page](readme/images/album-mobile-page.png)
+
 *[Back to Contents](#table-of-contents)*
 
 ---
 ## Future Features
+
+The won’t have stories in this phase of the project can be developed as future features.
+
+* ***[User Story #9 - Delete account](readme/user-stories/frontend-user-story-9.jpg)***
+* ***[User Story #11 - Reset Password](readme/user-stories/frontend-user-story-11.jpg)***
+* ***[User Story #23 - Private Album](readme/user-stories/frontend-user-story-23.jpg)***
+* ***[User Story #31 - Private Photos](readme/user-stories/frontend-user-story-31.jpg)***
+* ***[User Story #33 - Like and unlike photos](readme/user-stories/frontend-user-story-33.jpg)***
+* ***[User Story #41 - Administration Site](readme/user-stories/frontend-user-story-41.jpg)***
+
+In addition, the user interface for the popular profiles and popular albums can be improved by reload automatically with a new list when the user alters the follower and like status.
+
+In the liked page, maybe need to reload a new list of albums when user unlike an album from the list.
+
+Expand the functionality in the contacts component. This section can be including a list of the photographers wish to be listed with their details. Then users can search and contact the photographers by skill, type, location etc.
 
 *[Back to Contents](#table-of-contents)*
 
