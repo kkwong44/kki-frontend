@@ -623,7 +623,7 @@ Before the final deployment. The application needs to be tidy up.
 * Remove react StrictMode
 * Make sure refresh access token is in placed by installing Json Web Tokens to access the timestamp within the response.
 * Optimized bootstrap imports
-* Remove all console.log or comment it out in the try blocks.
+* Remove all console.log but it can be commented it out in the catch blocks as suggested in the tutorial.
 
 In package.json file, in the “scripts” section, add the following prebuild command:
 * "heroku-prebuild": "npm install -g serve",
