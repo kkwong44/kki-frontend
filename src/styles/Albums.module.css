@@ -2,6 +2,6 @@
     Styles sheet for Popular Albums component
  */
 
- .WordBreak {
-    word-break: break-all;
-  }
+.WordBreak {
+   word-break: break-all;
+}

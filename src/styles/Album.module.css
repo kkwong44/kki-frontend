@@ -3,13 +3,13 @@
  */
 
 .Album {
-    background-color: #ffffff;
-    border: 10px solid #dadadf;
-    border-radius: 30px;
-    margin-bottom: 16px;
-    text-align: center;
-  }
-  
+  background-color: #ffffff;
+  border: 10px solid #dadadf;
+  border-radius: 30px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
 .Border {
   border: 1px solid #dadadf;
 }

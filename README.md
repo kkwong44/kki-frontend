@@ -220,7 +220,6 @@ All pages have a navigation bar. The items on the navigation bar depends on the 
 
 ![Home Page](readme/images/navbar-signed-out.png)
 
-
 *Signed In User Navigation Bar*
 
 ![Home Page](readme/images/navbar-signed-in.png)
@@ -363,8 +362,6 @@ Underneath the album covers there is an album photo gallery section and the foll
 * ***[User Story #29 - Add Photos](readme/user-stories/frontend-user-story-29.jpg)***
 * ***[User Story #30 - Delete Photos](readme/user-stories/frontend-user-story-30.jpg)***
 * ***[User Story #32 - Album Photos Infinite scroll](readme/user-stories/frontend-user-story-32.jpg)***
-
-
 
 In this section there are three possible results:
 
@@ -597,13 +594,51 @@ Based on the eslint setup, all codes have passed the checker as show below.
 ---
 ## Bugs
 
+It has been noticed that the position of the album details page did not returning to the top on mobile devices. It seems when the user scrolls down the page on the album list and select an album. The returning page on the album detail page (i.e the photos) seems to be on the same position on the page and did not start from the top. This only happening on mobile device and needs to be address in the next phase of the project.
+
 *[Back to Contents](#table-of-contents)*
 
 ---
 ## Deployment
 
+Before the final deployment. The application needs to be tidy up.
+
+* Remove react StrictMode
+* Make sure refresh access token is in placed by installing Json Web Tokens to access the timestamp within the response.
+* Optimized bootstrap imports
+* Remove all console.log or comment it out in the try blocks.
+
+In package.json file, in the “scripts” section, add the following prebuild command:
+* "heroku-prebuild": "npm install -g serve",
+
+Create a Profile with the following web command
+* web: serve -s build
+
+Once all the above have been carried out then push the code to github and deploy in heroku.
+
+* Log in to heroku.com and open the dashboard for this react application
+* Select the “Deploy” tab in the dashboard
+* Scroll down to the bottom and then select “Deploy Branch”
+* Wait for your build to complete
+* Check message in the build log. It should be successfully “deployed to Heroku
+* Click the “open app” button at the top of the page
+* Test the application and should behave as expected
+
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Tools
+The tools used to carry out the development and deployment on this project are:
+* Gitpod and Github
+* ReactJS open source JavaScript library
+* Python modules
+* Django Rest Framework and libraries
+* Cloudinary
+* Webpage Screenshots - Chrome app extension (FireShot)
+* [Lucid Chart](https://www.lucidchart.com/) for creating flow chart
+* [ESlint checker](https://eslint.org/docs/latest/user-guide/getting-started) for code validation
+* [Heroku](https://id.heroku.com/login) for building, deploying, and managing apps
+* [Pixerbay](https://pixabay.com/) for images
 
 *[Back to Contents](#table-of-contents)*
 
