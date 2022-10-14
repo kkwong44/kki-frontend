@@ -183,6 +183,28 @@ profiles components
 *[Back to Contents](#table-of-contents)*
 
 ---
+## Project Requirements
+
+This project has been developed using Python Django Rest Framework, ReactJS, Bootstrap and Deployed in Heroku. The following are the project requirements in order to run the application.
+
+ReactJS and bootstrap are mainly used to develop the fronend of this application.
+
+* ReactJS - open source JavaScript library
+* Django - a high-level Python web framework
+* Gunicorn - a Web Server Gateway Interface (WSGI) to run Python web applications
+* dj_databases_url - a simple Django utility allows you to utilize the 12factor inspired DATABASE_URL environment variable to configure your Django application.
+* Psycopg2 - PostgreSQL database adapter for the Python programming language
+* Pillow - Image processing
+* Cloudinary - Online platform to store images for this application
+* dj3_cloudinary_storage - Django package that facilitates integration with Cloudinary by implementing Django Storage API.
+* PostgreSQL - an open source object-relational database system
+* Django allauth - integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
+* Heroku - a platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
+* Bootstrap v4 - an open-source CSS framework directed at responsive, mobile-first front-end web development.
+
+*[Back to Contents](#table-of-contents)*
+
+---
 ## Features
 
 ### Navigation Bar
