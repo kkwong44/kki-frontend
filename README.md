@@ -36,7 +36,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 * [Acknowledgment](#acknowledgment)
 
 ---
-### Objectives
+## Objectives
 
 The main objective of this site is to provide a platform for photographers to showcase their works online. The frontend and backend of this site has been built separately and use React and Django Rest Framework for the frontend to access the backend API.
 
@@ -203,6 +203,11 @@ ReactJS and bootstrap are mainly used to develop the fronend of this application
 * Django allauth - integrated set of Django applications addressing authentication, registration, account management as well as 3rd party (social) account authentication.
 * Heroku - a platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
 * Bootstrap v4 - an open-source CSS framework directed at responsive, mobile-first front-end web development.
+
+The following user stories has been implemented to setup the project environment.
+
+* ***[User Story #1 - Create and setup initial workspace](readme/user-stories/frontend-user-story-1.jpg)***
+* ***[User Story #2 - Create Initial Project to host the Frontend](readme/user-stories/frontend-user-story-2.jpg)***
 
 *[Back to Contents](#table-of-contents)*
 
@@ -647,6 +652,7 @@ The tools used to carry out the development and deployment on this project are:
 * Django Rest Framework and libraries
 * Cloudinary
 * Webpage Screenshots - Chrome app extension (FireShot)
+* CSS Validator
 * [Lucid Chart](https://www.lucidchart.com/) for creating flow chart
 * [ESlint checker](https://eslint.org/docs/latest/user-guide/getting-started) for code validation
 * [Heroku](https://id.heroku.com/login) for building, deploying, and managing apps
@@ -656,8 +662,20 @@ The tools used to carry out the development and deployment on this project are:
 
 ---
 ## Credits
+* This project was inspired and adapted from Code Institute React Moment project
+* Template created by Code Institute development framework for the creation of websites and web apps
+* [React](https://reactjs.org/docs/getting-started.html) - Getting started with React
+* [React Bootstrap](https://react-bootstrap.github.io/) - Home of React Bootstrap
+* [Djano Rest Framework](https://www.django-rest-framework.org/) - Home for Django Rest Framework
+* [Django Documentation](https://docs.djangoproject.com/en/4.0/) - for research and instructions
+* [Code Institute](https://codeinstitute.net/) - Full Stack Framework tutorials
 
 *[Back to Contents](#table-of-contents)*
 
 ---
 ## Acknowledgment
+
+I would like to thank the following to support the development of this site.
+
+* Learning Support - Code Institute
+* Mentoring Support - Daisy McGirr
