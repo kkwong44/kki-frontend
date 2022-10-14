@@ -22,6 +22,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
     * [Design Approach](#design-approach)
         * [User Stories](#user-stories)
         * [Kanban Board](#kanban-board)
+    * [Final Design](#final-design)
 * [Project Requirements](#project-requirements)
 * [Features](#features)
 * [Future Features](#future-features)
@@ -124,6 +125,60 @@ The Kanban board below shows all the user stories were initially in the 'To Do' 
 *Snapshot of the Kanban Board*
 
 ![Kanban Board](readme/images/kanban-board.png)
+
+### Final Design
+
+As mentioned, React applications are built by breaking the application into smaller components. These components can be reusable and act independently from each other.
+
+In this application we have common and reusable components that can be found on different part of the application. These components are
+
+* Asset – this is an animation of a spinner used for components that being loading on the page
+* Avatar – user profile data is pass to this component to display the username and profile image
+* Code404 – display page not found when encounter a 404 error
+* DeletConfirmation – display alert and confirmation message to user when performing delete actions.
+* MoreDropdown – dropdown menu options on another component
+* NavBar – Navigation bar for all pages
+
+The following components are more specific to the pages of the application. Since the components are independent to each other then we can rearrange the position of the components on the page. For example, in the comment page we make the comments component as priority and listed below the album cover.
+
+abouts component
+* AboutPage – rendering the about page
+
+albums components
+* Album – rendering and perform actions on individual album cover
+* AlbumCommentsPage – rendering the detail page of the album with priority in comments component
+* AlbumCreateForm – a form to add album to the site
+* AlbumEditForm – a form to edit an album
+* AlbumListPage – rendering the albums to the home page
+* AlbumPage – rendering the detail page of the album with priority in photos component
+* Albums – toggle in between desktop or mobile rendering
+* PopularAlbums – rendering the most liked albums
+
+auth components
+* SignInForm – a form for sign in
+* SignUpForm – a form for sign up
+
+comments components
+* Comment – rendering and perform actions on individual comment 
+* CommentCreateForm – a form to add comment
+* CommentEditForm – a form to edit comment
+* CommentMobile – display link to comments page on mobile devices
+
+contacts components
+* ContactEditForm – a form to edit a contact
+* ContactPage – rendering a contact page and check user staff status
+
+photos components
+* Photo – rendering individual photo
+* PhotoCreateForm – a form to add new photo to album
+
+profiles components
+* PopularProfiles – rendering and perform actions on most followed profiles
+* Profile – individual profile username, avatar and follower actions
+* ProfileEditForm – a form to edit and update user profile
+* ProfilePage - rendering profile page with associated albums
+* UsernameForm – a form to edit and update username
+* UserPasswordForm – a form to update password
 
 *[Back to Contents](#table-of-contents)*
 
