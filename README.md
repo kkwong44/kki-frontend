@@ -26,6 +26,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 * [Project Requirements](#project-requirements)
 * [Features](#features)
 * [Future Features](#future-features)
+* [ESLint Checker](#eslint-checker)
 * [Testing](#testing)
 * [Bugs](#bugs)
 * [Deployment](#deployment)
@@ -521,7 +522,6 @@ A three dots menu bar is also available for the owner of the profile.
 * Change Username
 * Change password
 
-
 *Expanded Three Dots Menu Bar*
 
 ![Three Dots Menu Bar](readme/images/profile-owner-menu.png)
@@ -569,6 +569,23 @@ In addition, the user interface for the popular profiles and popular albums can 
 In the liked page, maybe need to reload a new list of albums when user unlike an album from the list.
 
 Expand the functionality in the contacts component. This section can be including a list of the photographers wish to be listed with their details. Then users can search and contact the photographers by skill, type, location etc.
+
+*[Back to Contents](#table-of-contents)*
+
+---
+## ESLint Checker
+
+The ESLint plugin has been installed into the development environment as instructed from the following resources.
+
+The settings and rules have been updated in the '.eslintrc.js' file. One of the rules is to ignore the warning on passing children as a prop. The syntax of the infinite scroll was based on the Code Institute's moment walkthrough project. The correct syntax needs to be address in the next phase of the project.
+
+[https://github.com/jsx-eslint/eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react)
+
+[https://eslint.org/docs/latest/user-guide/getting-started](https://eslint.org/docs/latest/user-guide/getting-started)
+
+Based on the eslint setup, all codes have passed the checker as show below.
+
+![ESLint](readme/images/eslint.png)
 
 *[Back to Contents](#table-of-contents)*
 
