@@ -143,10 +143,10 @@ In this application we have common and reusable components that can be found on 
 
 The following components are more specific to the pages of the application. Since the components are independent to each other then we can rearrange the position of the components on the page. For example, in the comment page we make the comments component as priority and listed below the album cover.
 
-abouts component
+**abouts component**
 * AboutPage – rendering the about page
 
-albums components
+**albums components**
 * Album – rendering and perform actions on individual album cover
 * AlbumCommentsPage – rendering the detail page of the album with priority in comments component
 * AlbumCreateForm – a form to add album to the site
@@ -156,25 +156,25 @@ albums components
 * Albums – toggle in between desktop or mobile rendering
 * PopularAlbums – rendering the most liked albums
 
-auth components
+**auth components**
 * SignInForm – a form for sign in
 * SignUpForm – a form for sign up
 
-comments components
+**comments components**
 * Comment – rendering and perform actions on individual comment 
 * CommentCreateForm – a form to add comment
 * CommentEditForm – a form to edit comment
 * CommentMobile – display link to comments page on mobile devices
 
-contacts components
+**contacts components**
 * ContactEditForm – a form to edit a contact
 * ContactPage – rendering a contact page and check user staff status
 
-photos components
+**photos components**
 * Photo – rendering individual photo
 * PhotoCreateForm – a form to add new photo to album
 
-profiles components
+**profiles components**
 * PopularProfiles – rendering and perform actions on most followed profiles
 * Profile – individual profile username, avatar and follower actions
 * ProfileEditForm – a form to edit and update user profile
@@ -271,7 +271,7 @@ The following user stories has been implemented in this section.
 
 #### Search Bar
 
-On this page it has a search bar above the list of photo albums ("Album Covers"). User can search by keyword from Title, username and skill level.
+On this page it has a search bar above the list of photo albums ("Album Covers"). User can search by keyword from Title, username and type of photography.
 
 * ***[User Story #25 - Search Album](readme/user-stories/frontend-user-story-25.jpg)***
 
@@ -668,6 +668,7 @@ The tools used to carry out the development and deployment on this project are:
 * [React Bootstrap](https://react-bootstrap.github.io/) - Home of React Bootstrap
 * [Djano Rest Framework](https://www.django-rest-framework.org/) - Home for Django Rest Framework
 * [Django Documentation](https://docs.djangoproject.com/en/4.0/) - for research and instructions
+* [Select Dropdown in React JS With Fetched Data From API](https://www.youtube.com/watch?v=1cYnbYVAi_E) - for create a select dropdown option
 * [Code Institute](https://codeinstitute.net/) - Full Stack Framework tutorials
 
 *[Back to Contents](#table-of-contents)*
