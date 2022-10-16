@@ -28,6 +28,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 * [Future Features](#future-features)
 * [ESLint Checker](#eslint-checker)
 * [CSS Validator Testing](#css-validator-testing)
+* [Lighthouse Reports](#lighthouse-reports)
 * [Testing](#testing)
     * [Automated Testing](#automated-testing)
     * [Manual Testing](#manual-testing)
@@ -601,6 +602,23 @@ The source code can be copied and paste directly into the validator to perform t
 
 ***All css files from this application have been gone through this validation test and no errors have been found.***
 
+*[Back to Contents](#table-of-contents)*
+
+---
+## Lighthouse Reports
+
+Lighthouse is an open-source, automated tool for improving the performance, quality, and correctness of your web apps.
+
+All the possible pages on this application have undergone the Lighthouse tests in desktop and simulated mobile device.
+
+The overall performance is acceptable but possible improvement can be made and accessibility of the site is good.
+
+All reports can be viewed from the link below.
+
+**[Lighthouse Reports (Click to view)](readme/lighthouse/lighthouse.md#lighthouse-reports-for-kkimages-project)**
+
+*[Back to Contents](#table-of-contents)*
+
 ---
 ## Testing
 
@@ -625,7 +643,7 @@ The following are the test cases and the test scripts can be found in the __test
 
 All tests ran successfully as shown below.
 
-![Test Cases](readme/testing/frontend-auto-tests.png)
+![Test Results](readme/testing/frontend-auto-tests.png)
 
 ### Manual Testing
 
