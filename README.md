@@ -29,6 +29,8 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
 * [ESLint Checker](#eslint-checker)
 * [CSS Validator Testing](#css-validator-testing)
 * [Testing](#testing)
+    * [Automated Testing](#automated-testing)
+    * [Manual Testing](#manual-testing)
 * [Bugs](#bugs)
 * [Deployment](#deployment)
 * [Tools](#tools)
@@ -134,7 +136,7 @@ As mentioned, React applications are built by breaking the application into smal
 
 In this application we have common and reusable components that can be found on different part of the application. These components are
 
-* Asset – this is an animation of a spinner used for components that being loading on the page
+* Asset – this is an animation of a spinner used for components that being loading on the page or file path or message
 * Avatar – user profile data is pass to this component to display the username and profile image
 * Code404 – display page not found when encounter a 404 error
 * DeletConfirmation – display alert and confirmation message to user when performing delete actions.
@@ -601,6 +603,37 @@ The source code can be copied and paste directly into the validator to perform t
 
 ---
 ## Testing
+
+Manual testing was mainly performed against this project with limited automated test cases.
+
+### Automated Testing
+
+The following are the test cases and the test scripts can be found in the __tests__ directory under components:
+
+**1 About.test.js**
+* Test renders about
+
+**2 Albumtest.js**
+* Test renders Album
+
+**3 NavBar.test.js**
+* Test renders NavBar
+* Test renders link to the user profile for logged in user
+* Test renders Sign in and Sign up buttons again on log out
+* Test renders to the user liked albums for logged in user
+* Test renders links to create album, about and conta
+
+All tests ran successfully as shown below.
+
+![Test Cases](readme/testing/frontend-auto-tests.png)
+
+### Manual Testing
+
+Functional testing on this project has been carried out by executing the test scripts as defined below in the test report.
+
+All test results were as expected.
+
+**[Manual Tests Report (Click to view)](readme/testing/testing.md#manual-testing-for-kkimages-project)**
 
 *[Back to Contents](#table-of-contents)*
 
