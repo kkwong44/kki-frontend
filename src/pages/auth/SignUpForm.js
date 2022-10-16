@@ -50,6 +50,7 @@ const SignUpForm = () => {
     }
   };
 
+  // Rendering Sign up form
   return (
     <Row className={styles.Row}>
       <Col className="my-auto py-2 p-md-2" md={6}>

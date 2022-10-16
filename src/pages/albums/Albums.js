@@ -1,5 +1,5 @@
 //
-// Display Popular Albums in mobile desktop modes
+// Display Popular Albums in mobile or desktop modes
 //
 import React from "react";
 
@@ -11,6 +11,7 @@ const Albums = (props) => {
   const { album, mobile, imageSize = 40 } = props;
   const { id, cover_image, title } = album;
 
+  // Set popular albums data based on mobile or desktop devices
   return (
     <div
       className={`my-3 d-flex align-items-center ${mobile && "flex-column"}`}

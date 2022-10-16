@@ -7,6 +7,7 @@ import Spinner from "react-bootstrap/Spinner";
 
 import styles from "../styles/Asset.module.css";
 
+// Create an asset component for spinner, image source and messages
 const Asset = ({ spinner, src, message }) => {
   return (
     <div className={`${styles.Asset} p-4`}>

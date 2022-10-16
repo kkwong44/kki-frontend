@@ -11,6 +11,7 @@ import hero from "../../assets/hero.jpg";
 const AboutPage = () => {
   return (
     <>
+      {/* Rendering about page */}
       <Container className="mt-3">
         <Card>
           <Card.Body>

@@ -5,6 +5,7 @@ import React from "react";
 
 import styles from "../styles/Avatar.module.css";
 
+// Avatar settings with input source and text parameters
 const Avatar = ({ src, height = 45, text }) => {
   return (
     <span>

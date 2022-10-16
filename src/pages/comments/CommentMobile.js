@@ -10,8 +10,9 @@ import { Link } from "react-router-dom";
 import appStyles from "../../App.module.css";
 
 const CommentMobile = ({ mobile, id }) => {
-
   return (
+    // Create a comments container to link to comments page
+    // on mobile devices
     <Container
       // Check mobile or desktop
       className={`${appStyles.Content} ${

@@ -70,6 +70,7 @@ const Comment = (props) => {
     }
   };
 
+  // Rendering individual comment
   return (
     <>
       <Media>
@@ -93,7 +94,7 @@ const Comment = (props) => {
             <p>{content}</p>
           )}
         </Media.Body>
-        {/* Check current user is comment's owner */}
+        {/* Check current user is comment's owner and show menu*/}
         {is_owner && !showEditForm && (
           <MoreDropdown
             handleEdit={() => setShowEditForm(true)}

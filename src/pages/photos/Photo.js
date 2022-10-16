@@ -70,6 +70,7 @@ const Photo = (props) => {
   };
 
   return (
+    // Rendering individual photo
     <div>
       <Card>
         {/* Photo card header */}

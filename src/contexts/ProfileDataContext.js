@@ -16,7 +16,7 @@ export const useSetProfileData = () => useContext(SetProfileDataContext);
 
 export const ProfileDataProvider = ({ children }) => {
   const [profileData, setProfileData] = useState({
-    // we will use the pageProfile later!
+    // Set states for pageProfile and popularProfiles
     pageProfile: { results: [] },
     popularProfiles: { results: [] },
   });
@@ -30,6 +30,7 @@ export const ProfileDataProvider = ({ children }) => {
         followed: clickedProfile.id,
       });
 
+      // Set profile data for pageProfile and popularProfiles
       setProfileData((prevState) => ({
         ...prevState,
         pageProfile: {
@@ -54,6 +55,7 @@ export const ProfileDataProvider = ({ children }) => {
     try {
       await axiosRes.delete(`/followers/${clickedProfile.following_id}`);
 
+      // Set profile data for pageProfile and popularProfiles
       setProfileData((prevState) => ({
         ...prevState,
         pageProfile: {
@@ -88,10 +90,10 @@ export const ProfileDataProvider = ({ children }) => {
         // console.log(err);
       }
     };
-
     handleMount();
   }, [currentUser]);
 
+  // Provide user profile data
   return (
     <ProfileDataContext.Provider value={profileData}>
       <SetProfileDataContext.Provider

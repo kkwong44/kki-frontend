@@ -95,6 +95,7 @@ const ProfileEditForm = () => {
   // Set form's data fields and buttons
   const textFields = (
     <>
+      {/* Name section*/}
       <Form.Group>
         <Form.Label>Name</Form.Label>
         <Form.Control
@@ -109,7 +110,7 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-
+      {/* Biography section*/}
       <Form.Group>
         <Form.Label>Biography</Form.Label>
         <Form.Control
@@ -125,7 +126,7 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-
+      {/* Email address */}
       <Form.Group>
         <Form.Label>Email</Form.Label>
         <Form.Control
@@ -140,7 +141,7 @@ const ProfileEditForm = () => {
           {message}
         </Alert>
       ))}
-
+      {/* Cancel and Save buttons */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
         onClick={() => history.goBack()}

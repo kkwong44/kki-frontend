@@ -45,6 +45,7 @@ const AlbumListPage = ({ message, filter = "" }) => {
       }
     };
     setHasLoaded(false);
+    // Give 1s for each key enter in the search abe
     const timer = setTimeout(() => {
       fetchAlbums();
     }, 1000);

@@ -20,12 +20,13 @@ const ContactPage = () => {
   const [contacts, setContacts] = useState({ results: [] });
   const currentUser = useCurrentUser();
   const history = useHistory();
- 
+
   // Only company staffs allow to edit contact details
   // Use the first record from contacts
   const is_staff = currentUser?.staff;
   const company = contacts.results[0];
 
+  // Get contacts data
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -40,6 +41,7 @@ const ContactPage = () => {
 
   return (
     <>
+      {/* Rendering the contact page */}
       <Container className="text-center mt-3">
         <Card>
           <Card.Header className="h3">Contact us</Card.Header>
@@ -96,6 +98,6 @@ const ContactPage = () => {
       </Container>
     </>
   );
-}
+};
 
 export default ContactPage;

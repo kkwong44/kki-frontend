@@ -57,6 +57,7 @@ const UsernameForm = () => {
   };
 
   return (
+    // Rendering change username form
     <Row>
       <Col className="py-2 mx-auto text-center" md={6}>
         <Container className={appStyles.Content}>

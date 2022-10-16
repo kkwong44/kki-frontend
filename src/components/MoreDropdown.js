@@ -29,10 +29,12 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
     <Dropdown className="ml-auto" drop="left">
       <Dropdown.Toggle as={ThreeDots} />
 
+      {/* Fix menu position */}
       <Dropdown.Menu
         className="text-center"
         popperConfig={{ strategy: "fixed" }}
       >
+        {/* Handle Edit */}
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleEdit}
@@ -40,6 +42,7 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         >
           <i className="fas fa-edit" />
         </Dropdown.Item>
+        {/* Handle Delete */}
         <Dropdown.Item
           className={styles.DropdownItem}
           onClick={handleDelete}
@@ -52,18 +55,21 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
   );
 };
 
+// Three Dots menu options for user Profile
 export const ProfileEditDropdown = ({ id }) => {
   const history = useHistory();
   return (
     <Dropdown className={`ml-auto px-3 ${styles.Absolute}`} drop="left">
       <Dropdown.Toggle as={ThreeDots} />
       <Dropdown.Menu>
+        {/* set Edit menu item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit`)}
           aria-label="edit-profile"
         >
           <i className="fas fa-edit" /> edit profile
         </Dropdown.Item>
+        {/* set Change username menu item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/username`)}
           aria-label="edit-username"
@@ -71,6 +77,7 @@ export const ProfileEditDropdown = ({ id }) => {
           <i className="far fa-id-card" />
           change username
         </Dropdown.Item>
+        {/* set Change password menu item */}
         <Dropdown.Item
           onClick={() => history.push(`/profiles/${id}/edit/password`)}
           aria-label="edit-password"

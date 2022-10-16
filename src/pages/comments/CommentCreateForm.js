@@ -40,7 +40,6 @@ const CommentCreateForm = (props) => {
             comments_count: prevAlbum.results[0].comments_count + 1,
           },
         ],
-        
       }));
       setContent("");
     } catch (err) {
@@ -49,10 +48,14 @@ const CommentCreateForm = (props) => {
   };
 
   return (
+    // Rendering create form
     <Form className="mt-2" onSubmit={handleSubmit}>
-      {/* Form layout with current user profile image */}
-      <div className="text-center"><strong>Add comments</strong></div>
+      {/* Form Title */}
+      <div className="text-center">
+        <strong>Add comments</strong>
+      </div>
       <hr />
+      {/* Form layout with current user profile image */}
       <Form.Group>
         <InputGroup>
           <Link to={`/profiles/${profile_id}`}>
@@ -80,6 +83,6 @@ const CommentCreateForm = (props) => {
       </button>
     </Form>
   );
-}
+};
 
 export default CommentCreateForm;

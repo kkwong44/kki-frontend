@@ -41,8 +41,8 @@ const PhotoCreateForm = (props) => {
     history.push(
       `/albums/${album}`,
       setPhotoData({ title: "", photo_image: "" }),
-      setErrors(""),
-    )          
+      setErrors("")
+    );
   };
 
   // Handle change in input fields
@@ -63,9 +63,9 @@ const PhotoCreateForm = (props) => {
         ...photoData,
         photo_image: URL.createObjectURL(event.target.files[0]),
       });
-    } else
-      // Clear any previous data
-      setPhotoData({ title: "", photo_image: "" })
+    }
+    // Clear any previous data
+    else setPhotoData({ title: "", photo_image: "" });
     // Clear all current alert messages on screen
     setErrors("");
   };
@@ -126,8 +126,7 @@ const PhotoCreateForm = (props) => {
       {/* Cancel and create buttons */}
       <Button
         className={`${btnStyles.Button} ${btnStyles.Blue}`}
-        onClick={() => resetImageInput()
-        }
+        onClick={() => resetImageInput()}
       >
         cancel
       </Button>
@@ -196,6 +195,6 @@ const PhotoCreateForm = (props) => {
       </Row>
     </Form>
   );
-}
+};
 
 export default PhotoCreateForm;

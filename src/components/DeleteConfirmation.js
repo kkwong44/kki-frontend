@@ -13,6 +13,7 @@ const DeleteConfirmation = ({
   message,
 }) => {
   return (
+    // Show and Hide delete confirmation modal with message
     <Modal show={showModal} onHide={hideModal}>
       <Modal.Header closeButton>
         <Modal.Title>Delete Confirmation</Modal.Title>

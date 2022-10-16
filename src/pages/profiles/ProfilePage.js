@@ -70,6 +70,7 @@ const ProfilePage = () => {
     <>
       {/* Dropdown menu for owner's profile */}
       {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
+      {/* Profile data - image, username, name, email and counts */}
       <Row noGutters className="px-3 text-center">
         <Col lg={3} className="text-lg-left">
           <Image
@@ -156,6 +157,7 @@ const ProfilePage = () => {
   );
 
   return (
+    // Rendering the profile page
     <Row>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile />

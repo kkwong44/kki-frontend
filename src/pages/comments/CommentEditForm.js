@@ -14,6 +14,7 @@ const CommentEditForm = (props) => {
 
   const [formContent, setFormContent] = useState(content);
 
+  // Handle change on comment
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
@@ -44,6 +45,7 @@ const CommentEditForm = (props) => {
   };
 
   return (
+    // Rendering the edit form
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
         {/* Comment field */}

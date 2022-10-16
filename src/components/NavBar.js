@@ -23,12 +23,15 @@ import { removeTokenTimestamp } from "../utils/utils";
 
 import styles from "../styles/NavBar.module.css";
 
+// Setting NavBar menu
 const NavBar = () => {
   const currentUser = useCurrentUser();
   const setCurrentUser = useSetCurrentUser();
 
+  // Mobile devices
   const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
+  // Handle sign out user
   const handleSignOut = async () => {
     try {
       await axios.post("dj-rest-auth/logout/");
@@ -53,6 +56,7 @@ const NavBar = () => {
   // Show icons for logged in user
   const loggedInIcons = (
     <>
+      {/* Liked Page */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -60,9 +64,11 @@ const NavBar = () => {
       >
         <i className="fas fa-heart"></i>Liked
       </NavLink>
+      {/* Sign out icon */}
       <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
         <i className="fas fa-sign-out-alt"></i>Sign out
       </NavLink>
+      {/* Profile Icon */}
       <NavLink
         className={styles.NavLink}
         to={`/profiles/${currentUser?.profile_id}`}
@@ -71,9 +77,11 @@ const NavBar = () => {
       </NavLink>
     </>
   );
+
   // Show icons for logged out user
   const loggedOutIcons = (
     <>
+      {/* Sign in Icon */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -81,6 +89,7 @@ const NavBar = () => {
       >
         <i className="fas fa-sign-in-alt"></i>Sign in
       </NavLink>
+      {/* Sign up Icon */}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -91,6 +100,7 @@ const NavBar = () => {
     </>
   );
 
+  // Render NavBar based on sign in and sign out status
   return (
     <Navbar
       expanded={expanded}
@@ -99,19 +109,27 @@ const NavBar = () => {
       fixed="top"
     >
       <Container>
+        {/* Company Logo */}
         <NavLink to="/">
           <Navbar.Brand>
             <img src={logo} alt="logo" height="45" />
           </Navbar.Brand>
         </NavLink>
+
+        {/* Show add album icon to signed in user only */}
         {currentUser && addAlbumIcon}
+
+        {/* Toggle between expand and collapse menu bar */}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
           aria-controls="basic-navbar-nav"
         />
+
+        {/* Menu items that can be collapsed */}
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
+            {/* Home Page */}
             <NavLink
               exact
               className={styles.NavLink}
@@ -120,6 +138,7 @@ const NavBar = () => {
             >
               <i className="fas fa-home"></i>Home
             </NavLink>
+            {/* About Page */}
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
@@ -127,6 +146,7 @@ const NavBar = () => {
             >
               <i className="fa fa-info-circle"></i>About
             </NavLink>
+            {/* Contact Page */}
             <NavLink
               className={styles.NavLink}
               activeClassName={styles.Active}
@@ -134,6 +154,7 @@ const NavBar = () => {
             >
               <i className="fa fa-address-book"></i>Contact
             </NavLink>
+            {/* Additional menu items based on sign in and sign out status */}
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
         </Navbar.Collapse>

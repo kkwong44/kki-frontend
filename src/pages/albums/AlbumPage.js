@@ -39,6 +39,7 @@ const AlbumPage = () => {
   const [photos, setPhotos] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
 
+  // Get data from album, photos and comments
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -85,6 +86,7 @@ const AlbumPage = () => {
           ) : null}
         </Container>
         {/* List photos - Logged in user only */}
+        {/* and based on owner and number of photos */}
         <Container className={appStyles.Content}>
           <div className="text-center mb-2">Album Photo Gallery</div>
           {currentUser && photos.results.length ? (
@@ -117,7 +119,7 @@ const AlbumPage = () => {
         {/* Show popular profiles */}
         <PopularProfiles />
 
-        {/* Form to add comments */}
+        {/* Form to add comments or sign in to leave comments */}
         {currentUser ? (
           <>
             <Container className={`${appStyles.Content}  mt-4 mb-2`}>
@@ -130,9 +132,15 @@ const AlbumPage = () => {
               />
             </Container>
           </>
-        ) : null}
+        ) : (
+          <>
+            <Container className={`${appStyles.Content}  mt-4 mb-2`}>
+              Sign in to leave comments
+            </Container>
+          </>
+        )}
 
-        {/* List comments */}
+        {/* List comments based on signed in user and number of comments */}
         <div className="mt-3">Comments:</div>
         <Container className={appStyles.Content}>
           {comments.results.length ? (

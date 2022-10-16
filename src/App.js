@@ -27,6 +27,7 @@ const App = () => {
   const currentUser = useCurrentUser();
   const profile_id = currentUser?.profile_id || "";
 
+  // Set all the routing paths for the application
   return (
     <div className={styles.App}>
       <NavBar />

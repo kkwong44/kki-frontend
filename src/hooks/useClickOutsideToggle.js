@@ -7,6 +7,9 @@ import { useEffect, useRef, useState } from "react";
 const useClickOutsideToggle = () => {
   const [expanded, setExpanded] = useState(false);
   const ref = useRef(null);
+  
+  // Collapse the object when clicked outside the object
+  // and set expand status to false
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (ref.current && !ref.current.contains(event.target)) {

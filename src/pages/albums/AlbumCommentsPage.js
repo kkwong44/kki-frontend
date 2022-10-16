@@ -34,6 +34,7 @@ const AlbumCommentsPage = () => {
   const [photos, setPhotos] = useState({ results: [] });
   const [comments, setComments] = useState({ results: [] });
 
+  // Get data from album, photos and comments
   useEffect(() => {
     const handleMount = async () => {
       try {
@@ -47,7 +48,6 @@ const AlbumCommentsPage = () => {
         setAlbum({ results: [album] });
         setPhotos(photos);
         setComments(comments);
-
       } catch (err) {
         // console.log(err);
       }
@@ -57,17 +57,19 @@ const AlbumCommentsPage = () => {
 
   const is_owner = currentUser?.username === owner;
 
+  // Rendering Album Comments page
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         {/* Show popular profiles */}
         <PopularProfiles mobile />
 
+        {/* Render selected album cover */}
         <Container>
           <Album {...album.results[0]} setAlbums={setAlbum} albumPage />
         </Container>
 
-        {/* Form to add comments */}
+        {/* Form to add comments or sign in to leave comments */}
         <Container className={`${appStyles.Content}  mt-4 mb-4`}>
           {currentUser ? (
             <CommentCreateForm
@@ -82,7 +84,7 @@ const AlbumCommentsPage = () => {
           )}
         </Container>
 
-        {/* List comments */}
+        {/* List comments based on signed in user and number of comments */}
         <div>Comments:</div>
         <Container className={appStyles.Content}>
           {comments.results.length ? (
@@ -126,12 +128,14 @@ const AlbumCommentsPage = () => {
             </Container>
           </>
         ) : null}
-        {/* List photos - Logged in user only */}
+        {/* Set title margins */}
         {currentUser && is_owner ? (
           <div className="mb-2">Album photos:</div>
         ) : (
           <div className="mt-3 mb-2">Album photos:</div>
         )}
+        {/* List photos - Logged in user only */}
+        {/* and based on owner and number of photos */}
         <Container className={appStyles.Content}>
           {currentUser && photos.results.length ? (
             <InfiniteScroll
@@ -159,6 +163,6 @@ const AlbumCommentsPage = () => {
       </Col>
     </Row>
   );
-}
+};
 
 export default AlbumCommentsPage;

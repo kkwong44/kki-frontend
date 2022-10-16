@@ -9,6 +9,7 @@ import Container from "react-bootstrap/Container";
 import NoResults from "../assets/no-results.png";
 import Asset from "./Asset";
 
+// Render a 404 Page with contact details
 const Code404 = () => {
   return (
     <Container>

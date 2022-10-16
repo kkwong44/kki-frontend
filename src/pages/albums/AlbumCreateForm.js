@@ -29,6 +29,7 @@ const AlbumCreateForm = () => {
   const [errors, setErrors] = useState({});
   const currentUser = useCurrentUser();
 
+  // Set state on album data
   const [albumData, setAlbumData] = useState({
     title: "",
     content: "",

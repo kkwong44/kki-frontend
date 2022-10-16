@@ -127,6 +127,7 @@ const Album = (props) => {
                 <br />
                 <small className="text-muted">Last updated</small>
               </span>
+              {/* Show menu for owner */}
               {is_owner && albumPage && (
                 <MoreDropdown
                   handleEdit={handleEdit}
@@ -135,6 +136,7 @@ const Album = (props) => {
               )}
             </div>
           </Media>
+          {/* Last updated date */}
           <span className="pr-1 d-block d-sm-none text-left mt-3">
             <small className="text-muted">Last updated: </small>
             <small className="text-muted">{updated_at}</small>
@@ -157,7 +159,8 @@ const Album = (props) => {
         )}
         {content && <Card.Text>{content}</Card.Text>}
 
-        {/* Handle and show likes and counts  */}
+        {/* Handle and show like icon and counts */}
+        {/* Set icon behaviour based on user status */}
         <div className={styles.AlbumBar}>
           {is_owner ? (
             <OverlayTrigger
@@ -184,6 +187,7 @@ const Album = (props) => {
           )}
           {likes_count}
 
+          {/* Show comment icon and counts */}
           {comments_count === 0 ? (
             <Link to={`/albums/${id}/comments`}>
               <i className="far fa-comments" />
@@ -196,6 +200,7 @@ const Album = (props) => {
             </Link>
           )}
 
+          {/* Show image icon and counts */}
           {photos_count === 0 ? (
             <Link to={`/albums/${id}`}>
               <i className="far fa-image" />
@@ -207,6 +212,8 @@ const Album = (props) => {
               {photos_count}
             </Link>
           )}
+
+          {/* Show photography skill level */}
           {skill_level === "Other" ? (
             <Card.Text>
               <small className="text-muted">Photos taken by General Photographer</small>

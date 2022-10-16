@@ -311,6 +311,7 @@ const ContactEditForm = () => {
   );
 
   return (
+    // Rendering the edit form
     <>
       <Form onSubmit={handleSubmit}>
         <Container className={`${appStyles.Content} py-2 p-0 p-md-2 mt-3`}>

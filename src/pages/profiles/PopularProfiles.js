@@ -31,6 +31,7 @@ const PopularProfiles = ({ mobile }) => {
             <strong>Most Followed Profiles</strong>
           </p>
           <hr />
+          {/* Mobile or Desktop */}
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularProfiles.results.slice(0, 4).map((profile) => (

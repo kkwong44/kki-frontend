@@ -22,6 +22,7 @@ import { useParams } from "react-router-dom";
 const AlbumEditForm = () => {
   const [errors, setErrors] = useState({});
 
+  // Set state on album data
   const [albumData, setAlbumData] = useState({
     title: "",
     content: "",

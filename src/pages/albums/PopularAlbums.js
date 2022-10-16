@@ -50,6 +50,7 @@ const PopularAlbums = ({ mobile }) => {
         <>
           <p className="text-center mt-2">Most Liked Albums</p>
           <hr />
+          {/* Mobile or desktop */}
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularAlbums.results.slice(0, 4).map((album) => (
