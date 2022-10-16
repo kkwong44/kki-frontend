@@ -53,7 +53,7 @@ The target audients are split into photographers and general users.
 * Create a community for photographers to share their works and potentially get hired to commission a job
 * A platform that allows hobbyists to browse and get inspirations from the works posted by the photographers
 * A platform that allows user to find and hire a photographer
-* A platform to share expriences, photography techinques and general discussions.
+* A platform to share experiences, photography techniques and general discussions.
 
 ### User Goals
 
@@ -192,13 +192,13 @@ The following components are more specific to the pages of the application. Sinc
 
 This project has been developed using Python Django Rest Framework, ReactJS, Bootstrap and Deployed in Heroku. The following are the project requirements in order to run the application.
 
-ReactJS and bootstrap are mainly used to develop the fronend of this application.
+ReactJS and bootstrap are mainly used to develop the frontend of this application.
 
 * ReactJS - open source JavaScript library
 * Bootstrap v4.6.0 - an open-source CSS framework directed at responsive, mobile-first front-end web development.
 * React Bootstrap - replaces the Bootstrap JavaScript
 * Axios - Promise based HTTP client for the browser and node.js
-* JSON Web Tokens - industry standard for representing claims securely between two partie
+* JSON Web Tokens - industry standard for representing claims securely between two parties
 * Heroku - a platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
 
 The following user stories has been implemented to setup the project environment.
@@ -246,7 +246,7 @@ A new album will be created and display on the album detail page when passed the
 
 *Form to Create A New Album*
 
-![Create  New Album](readme/images/album-create.png)
+![Create New Album](readme/images/album-create.png)
 
 The following user story has been implemented for this part of development.
 
@@ -405,7 +405,7 @@ There are three components on the sidebar on this page
     This component lists the top 5 most liked albums or 4 on mobile devices. This is determined by number of likes in each album and user can like or unlike the album from the album cover.
 
 * Comments
-    A list of comments will be shown here in descending order by date. Signed in user can leave a comments about the album and the owner of the comment can edit and delete their own comments.
+    A list of comments will be shown here in descending order by date. Signed in user can leave comments about the album and the owner of the comment can edit and delete their own comments.
 
 *Example of Album Photos Page*
 
@@ -453,7 +453,7 @@ This page provides the contact details of the company. User can click on the ema
 
 ![Contact Page](readme/images/contact-page.png)
 
-An edit form  is available to update the company details when the edit button is clicked by a member of staff id. The company record has been set to 1 for the department id.
+An edit form is available to update the company details when the edit button is clicked by a member of staff id. The company record has been set to 1 for the department id.
 
 *Form to Edit Company Details*
 
@@ -491,7 +491,7 @@ This page allows the user to sign up to be a member of the site. Validation chec
 
 ### Profile page
 
-When a user clicks on a profile, the page will be filtered and loaded with the albums belong to the selected profile. The page also shows the details about the selected profilesas below:
+When a user clicks on a profile, the page will be filtered and loaded with the albums belong to the selected profile. The page also shows the details about the selected profile as below:
 
 * Profile avatar
 * Username
@@ -639,7 +639,7 @@ The following are the test cases and the test scripts can be found in the __test
 * Test renders link to the user profile for logged in user
 * Test renders Sign in and Sign up buttons again on log out
 * Test renders to the user liked albums for logged in user
-* Test renders links to create album, about and conta
+* Test renders links to create album, about and contact
 
 All tests ran successfully as shown below.
 
@@ -659,6 +659,8 @@ All test results were as expected.
 ## Bugs
 
 It has been noticed that the position of the album details page did not returning to the top on mobile devices. It seems when the user scrolls down the page on the album list and select an album. The returning page on the album detail page (i.e the photos) seems to be on the same position on the page and did not start from the top. This only happening on mobile device and needs to be address in the next phase of the project.
+
+It has been noticed that the site does not allow user to sign in under Incognito window. It seems there is a problem with the refresh token. Further investigation is required to resolve this issue.
 
 *[Back to Contents](#table-of-contents)*
 
@@ -710,7 +712,7 @@ The tools used to carry out the development and deployment on this project are:
 * Template created by Code Institute development framework for the creation of websites and web apps
 * [React](https://reactjs.org/docs/getting-started.html) - Getting started with React
 * [React Bootstrap](https://react-bootstrap.github.io/) - Home of React Bootstrap
-* [Djano Rest Framework](https://www.django-rest-framework.org/) - Home for Django Rest Framework
+* [Django Rest Framework](https://www.django-rest-framework.org/) - Home for Django Rest Framework
 * [Django Documentation](https://docs.djangoproject.com/en/4.0/) - for research and instructions
 * [Select Dropdown in React JS With Fetched Data From API](https://www.youtube.com/watch?v=1cYnbYVAi_E) - for create a select dropdown option
 * [Code Institute](https://codeinstitute.net/) - Full Stack Framework tutorials
