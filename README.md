@@ -6,6 +6,8 @@ This platform also can be used to share photography experiences, techniques, loo
 
 Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live site.
 
+Click [here](https://kkimages-drf-api.herokuapp.com/) to access the backend of the live site.
+
 *Screenshot - Mockup on KKImages App, generated from [Multi Device Website Mockup Generator](https://techsini.com/multi-mockup/index.php)*
 
 ![Screenshot on Mockup](readme/images/site-mockup.png)
@@ -23,6 +25,7 @@ Click [here](https://kkimages.herokuapp.com/) to access the frontend of the live
         * [User Stories](#user-stories)
         * [Kanban Board](#kanban-board)
     * [Final Design](#final-design)
+* [Application Site Map](#application-site-map)
 * [Project Requirements](#project-requirements)
 * [Features](#features)
 * [Future Features](#future-features)
@@ -184,6 +187,14 @@ The following components are more specific to the pages of the application. Sinc
 * ProfilePage - rendering profile page with associated albums
 * UsernameForm – a form to edit and update username
 * UserPasswordForm – a form to update password
+
+*[Back to Contents](#table-of-contents)*
+
+---
+## Application Site Map
+The following diagram is the basic navigation site map from the navigation menu. In addition, user can reach to the same page from different part of the application by clicking the common icons like comments and image. For example, user can navigate to user profile page where ever they clicked the user avatar icon.
+
+![Site Map](readme/images/site-map.jpg)
 
 *[Back to Contents](#table-of-contents)*
 
