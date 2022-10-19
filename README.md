@@ -208,6 +208,9 @@ ReactJS and bootstrap are mainly used to develop the frontend of this applicatio
 * ReactJS - open source JavaScript library
 * Bootstrap v4.6.0 - an open-source CSS framework directed at responsive, mobile-first front-end web development.
 * React Bootstrap - replaces the Bootstrap JavaScript
+* react-dom - a package serves as the entry point to the DOM and server renderers for React.
+* react-router-dom - a package contains bindings for using React Router in web applications.
+* react-infinite-scroll-component - a component to make infinite scrolling
 * Axios - Promise based HTTP client for the browser and node.js
 * JSON Web Tokens - industry standard for representing claims securely between two parties
 * Heroku - a platform as a service that enables developers to build, run, and operate applications entirely in the cloud.
