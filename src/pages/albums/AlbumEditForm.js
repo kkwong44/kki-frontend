@@ -81,7 +81,6 @@ const AlbumEditForm = () => {
       ...albumData,
       skill_level: event.target.value,
     });
-    console.log(skill_level);
   };
 
   // Handle change in image upload
